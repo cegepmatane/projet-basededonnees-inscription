@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VueInscriptionDateAllerRetour"></activity>
+        <activity android:name=".VueInscriptionDateAllerRetour" />
+        <activity android:name=".VueInscriptionChoixHoraireAllerSimple" />
+        <activity android:name=".VueInscriptionChoixHoraireAllerRetour"></activity>
     </application>
 
 </manifest>
