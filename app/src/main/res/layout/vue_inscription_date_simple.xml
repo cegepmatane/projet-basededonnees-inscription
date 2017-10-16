@@ -12,9 +12,11 @@
         android:id="@+id/champ_choisir_date"
         android:layout_width="209dp"
         android:layout_height="60dp"
-        android:text="Choisir sa date de départ"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="176dp"
+        android:clickable="true"
         android:onClick="onClick"
-        android:clickable="true"/>
+        android:text="Choisissez votre date de départ"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="176dp" />
 </android.support.constraint.ConstraintLayout>

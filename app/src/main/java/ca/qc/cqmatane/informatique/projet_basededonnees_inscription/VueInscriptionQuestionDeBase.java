@@ -10,7 +10,6 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_quest_de_base);
-        Intent intention = new Intent(VueInscriptionQuestionDeBase.this, VueInscriptionDateAllerRetour.class);
-        startActivity(intention);
+
     }
 }
