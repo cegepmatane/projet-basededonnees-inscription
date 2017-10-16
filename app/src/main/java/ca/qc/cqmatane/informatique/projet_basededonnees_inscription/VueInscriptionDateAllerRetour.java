@@ -3,7 +3,7 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class vueInscriptionDateAllerRetour extends AppCompatActivity {
+public class VueInscriptionDateAllerRetour extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
