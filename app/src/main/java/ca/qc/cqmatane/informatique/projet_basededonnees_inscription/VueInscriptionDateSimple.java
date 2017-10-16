@@ -38,6 +38,8 @@ public class VueInscriptionDateSimple extends AppCompatActivity {
                 annee = i + "";
             }
         }, dateCourante.get(Calendar.YEAR), dateCourante.get(Calendar.MONTH), dateCourante.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMinDate(dateCourante.getTimeInMillis());
+        datePickerDialog.getDatePicker().setMaxDate(1522540799000L);
         datePickerDialog.show();
     }
 }
