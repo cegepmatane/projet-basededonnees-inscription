@@ -3,7 +3,7 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class vue_inscription_question_de_base extends AppCompatActivity {
+public class vueInscriptionQuestionDeBase extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
