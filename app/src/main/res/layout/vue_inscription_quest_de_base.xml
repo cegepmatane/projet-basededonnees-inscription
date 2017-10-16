@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ca.qc.cqmatane.informatique.projet_basededonnees_inscription.vue_inscription_quest_de_base">
+    tools:context="ca.qc.cqmatane.informatique.projet_basededonnees_inscription.vue_inscription_question_de_base">
 
     <TextView
         android:layout_width="wrap_content"
