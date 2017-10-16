@@ -8,6 +8,6 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vue_inscription_quest_de_base);
+        setContentView(R.layout.vue_inscription_question_de_base);
     }
 }
