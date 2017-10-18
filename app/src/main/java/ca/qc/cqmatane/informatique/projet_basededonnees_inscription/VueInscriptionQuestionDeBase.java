@@ -36,7 +36,6 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
                 radioButtonAllerSimple.setChecked(false);
             }
         });
-<<<<<<< HEAD
 
         spinnerDepart = (Spinner) findViewById(R.id.spinner_depart_aller_simple);
         spinnerArrivee = (Spinner) findViewById(R.id.spinner_arrivee_aller_simple);
@@ -46,9 +45,5 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
         spinnerArrivee.setAdapter(adapter);
 
         inscription = new Inscription();
-
-
-=======
->>>>>>> 75ec46fcb18e8f52b2b8f5d9047805748b299558
     }
 }
