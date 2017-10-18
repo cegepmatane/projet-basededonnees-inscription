@@ -21,7 +21,7 @@
         <activity android:name=".VueInscriptionChoixHoraireAllerRetour" />
         <activity android:name=".VueInscriptionDateSimple" />
         <activity android:name=".VueInscriptionRecapitulatifDesInformations" />
-        <activity android:name=".VueInscriptionTicket"></activity>
+        <activity android:name=".VueInscriptionTicket" />
     </application>
 
 </manifest>
