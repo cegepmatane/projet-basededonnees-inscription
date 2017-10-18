@@ -12,7 +12,6 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_question_de_base);
-        startActivity(new Intent(VueInscriptionQuestionDeBase.this, VueInscriptionDateAllerRetour.class));
         RadioButton radioButtonAllerSimple = (RadioButton) findViewById(R.id.bouton_aller_simple);
         radioButtonAllerSimple.setOnClickListener(new View.OnClickListener() {
             @Override
