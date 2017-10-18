@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="destination-array" >
+        <item>Matane</item>
+        <item>Godbout</item>
+        <item>Baie-Comeau</item>
+    </string-array>
+</resources>

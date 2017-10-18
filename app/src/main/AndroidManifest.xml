@@ -20,7 +20,8 @@
         <activity android:name=".VueInscriptionChoixHoraireAllerSimple" />
         <activity android:name=".VueInscriptionChoixHoraireAllerRetour" />
         <activity android:name=".VueInscriptionDateSimple" />
-        <activity android:name=".VueInscriptionRecapitulatifDesInformations"></activity>
+        <activity android:name=".VueInscriptionRecapitulatifDesInformations" />
+        <activity android:name=".VueInscriptionTicket" />
     </application>
 
 </manifest>

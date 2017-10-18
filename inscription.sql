@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 16 Octobre 2017 à 18:42
+-- Généré le :  Mer 18 Octobre 2017 à 19:48
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -34,8 +34,10 @@ CREATE TABLE `inscription` (
   `heureAller` time NOT NULL,
   `dateRetour` date DEFAULT NULL,
   `heureRetour` time DEFAULT NULL,
+  `depart` enum('Matane','Godbout','Baie-Comeau') NOT NULL,
   `destination` enum('Matane','Godbout','Baie-Comeau') NOT NULL,
-  `prix` double NOT NULL
+  `prix` double NOT NULL,
+  `tempsDebutInscription` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -105,12 +107,12 @@ ALTER TABLE `inscription`
 -- AUTO_INCREMENT pour la table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `idPersonne` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPersonne` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `vehicule`
 --
 ALTER TABLE `vehicule`
-  MODIFY `idVehicule` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idVehicule` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Contraintes pour les tables exportées
 --
