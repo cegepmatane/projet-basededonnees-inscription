@@ -10,6 +10,13 @@ public class Personne {
     private int age;
     private boolean accompagnateur;
 
+    private static Personne instance;
+
+    public static Personne getInstance(){
+        if(instance == null)instance = new Personne();
+        return instance;
+    }
+
     public Personne() {
     }
 

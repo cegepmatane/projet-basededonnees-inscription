@@ -17,6 +17,13 @@ public class Inscription {
     private String heure;
     private double prix;
 
+    private static Inscription instance;
+
+    public static Inscription getInstance(){
+        if(instance == null)instance = new Inscription();
+        return instance;
+    }
+
     public Inscription() {
     }
 

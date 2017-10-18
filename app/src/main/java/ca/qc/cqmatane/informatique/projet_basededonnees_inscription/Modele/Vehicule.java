@@ -11,8 +11,14 @@ public class Vehicule {
     private double largeur;
     private double longueur;
 
-    public Vehicule() {
+    private static Vehicule instance;
+
+    public static Vehicule getInstance(){
+        if(instance == null)instance = new Vehicule();
+        return instance;
     }
+
+    public Vehicule(){}
 
     public Vehicule(int id, String type, double largeur, double longueur) {
         this.id = id;
