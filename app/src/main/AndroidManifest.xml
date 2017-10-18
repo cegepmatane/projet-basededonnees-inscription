@@ -18,8 +18,9 @@
         </activity>
         <activity android:name=".VueInscriptionDateAllerRetour" />
         <activity android:name=".VueInscriptionChoixHoraireAllerSimple" />
-        <activity android:name=".VueInscriptionChoixHoraireAllerRetour"></activity>
-        <activity android:name=".VueInscriptionDateSimple"></activity>
+        <activity android:name=".VueInscriptionChoixHoraireAllerRetour" />
+        <activity android:name=".VueInscriptionDateSimple" />
+        <activity android:name=".VueInscriptionRecapitulatifDesInformations"></activity>
     </application>
 
 </manifest>
