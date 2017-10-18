@@ -16,54 +16,29 @@
         android:layout_marginStart="8dp"
         android:checked="true"
         android:text="Aller Simple"
-        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/bouton_aller_retour"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_aller_simple"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintVertical_bias="1.0" />
 
     <RadioButton
         android:id="@+id/bouton_aller_retour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
+        android:layout_marginRight="28dp"
         android:checked="false"
         android:text="Aller-Retour"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <EditText
-        android:id="@+id/text_nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nom"
-        tools:layout_editor_absoluteX="85dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_aller_simple"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/layout_aller_simple" />
-
-    <EditText
-        android:id="@+id/text_nombre_personne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nombre de passagers"
-        app:layout_constraintTop_toBottomOf="@+id/text_nom"
-        tools:layout_editor_absoluteX="85dp" />
-
-    <EditText
-        android:id="@+id/text_nombre_vehicule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nombre de véhicules"
-        app:layout_constraintTop_toBottomOf="@+id/text_nombre_personne"
-        tools:layout_editor_absoluteX="85dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
         android:id="@+id/layout_aller_simple"
@@ -95,6 +70,48 @@
             android:layout_weight="0.56" />
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/text_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nom"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/layout_aller_simple"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/text_nombre_personne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nombre de passagers"
+        app:layout_constraintTop_toBottomOf="@+id/text_nom"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/text_nombre_vehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nombre de véhicules"
+        app:layout_constraintTop_toBottomOf="@+id/text_nombre_personne"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
     <Button
         android:id="@+id/bouton_valider"
         android:layout_width="wrap_content"
@@ -102,6 +119,11 @@
         android:layout_marginTop="40dp"
         android:text="Valider"
         app:layout_constraintTop_toBottomOf="@+id/text_nombre_vehicule"
-        tools:layout_editor_absoluteX="148dp" />
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
 
 </android.support.constraint.ConstraintLayout>

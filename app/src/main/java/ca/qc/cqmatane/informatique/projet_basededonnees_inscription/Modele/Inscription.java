@@ -13,8 +13,10 @@ public class Inscription {
     private String type;
     private ArrayList<Personne> listePersonnes;
     private ArrayList<Vehicule> listeVehicules;
-    private String date;
-    private String heure;
+    private String dateAller;
+    private String dateRetour;
+    private String heureAller;
+    private String heureRetour;
     private double prix;
 
     private static Inscription instance;
@@ -67,20 +69,36 @@ public class Inscription {
         this.listeVehicules = listeVehicules;
     }
 
-    public String getDate() {
-        return date;
+    public String getDateAller() {
+        return dateAller;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateAller(String dateAller) {
+        this.dateAller = dateAller;
     }
 
-    public String getHeure() {
-        return heure;
+    public String getDateRetour() {
+        return dateRetour;
     }
 
-    public void setHeure(String heure) {
-        this.heure = heure;
+    public void setDateRetour(String dateRetour) {
+        this.dateRetour = dateRetour;
+    }
+
+    public String getHeureAller() {
+        return heureAller;
+    }
+
+    public void setHeureAller(String heureAller) {
+        this.heureAller = heureAller;
+    }
+
+    public String getHeureRetour() {
+        return heureRetour;
+    }
+
+    public void setHeureRetour(String heureRetour) {
+        this.heureRetour = heureRetour;
     }
 
     public double getPrix() {
