@@ -19,7 +19,6 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_question_de_base);
-
         RadioButton radioButtonAllerSimple = (RadioButton) findViewById(R.id.bouton_aller_simple);
         radioButtonAllerSimple.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +36,7 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
                 radioButtonAllerSimple.setChecked(false);
             }
         });
+<<<<<<< HEAD
 
         spinnerDepart = (Spinner) findViewById(R.id.spinner_depart_aller_simple);
         spinnerArrivee = (Spinner) findViewById(R.id.spinner_arrivee_aller_simple);
@@ -48,5 +48,7 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
         inscription = new Inscription();
 
 
+=======
+>>>>>>> 75ec46fcb18e8f52b2b8f5d9047805748b299558
     }
 }
