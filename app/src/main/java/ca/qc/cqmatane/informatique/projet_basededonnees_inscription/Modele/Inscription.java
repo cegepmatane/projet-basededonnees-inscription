@@ -2,8 +2,6 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.Modele;
 
 import java.util.ArrayList;
 
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.TypeInscription;
-
 /**
  * Created by lucas on 16/10/2017.
  */

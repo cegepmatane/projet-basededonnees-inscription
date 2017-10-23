@@ -1,4 +1,4 @@
-package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
+package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.Modele;
 
 /**
  * Created by 1741262 on 2017-10-23.
