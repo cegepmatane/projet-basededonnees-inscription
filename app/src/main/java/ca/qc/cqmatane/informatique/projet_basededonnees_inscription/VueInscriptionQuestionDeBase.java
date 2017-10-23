@@ -1,5 +1,6 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -53,7 +54,7 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
         champNom = (EditText) findViewById(R.id.text_nom);
         champNbPassagers = (EditText) findViewById(R.id.text_nombre_personne);
         champNbVehicules = (EditText) findViewById(R.id.text_nombre_vehicule);
-        inscription = new Inscription();
+        inscription = Inscription.getInstance();
         champNom.setText(inscription.getNom());
         try {
             champNbPassagers.setText(inscription.getListePersonnes().size());
@@ -67,6 +68,10 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 inscription.setNom(champNom.getText().toString());
+                if (Integer.parseInt(champNbVehicules.getText().toString()) == 0){
+                    Intent intentNavigueQuestionDetaillees = new Intent(VueInscriptionQuestionDeBase.this, VueInscriptionQuestionDetailles.class);
+                    
+                }
 
             }
         });
