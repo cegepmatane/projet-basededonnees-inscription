@@ -27,7 +27,7 @@ public class Inscription {
         return instance;
     }
 
-    public Inscription() {
+    private Inscription() {
     }
 
     public int getNumeroInscription() {
