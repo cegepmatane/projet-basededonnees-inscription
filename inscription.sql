@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 18 Octobre 2017 à 19:48
+-- Généré le :  Lun 23 Octobre 2017 à 18:21
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -37,7 +37,7 @@ CREATE TABLE `inscription` (
   `depart` enum('Matane','Godbout','Baie-Comeau') NOT NULL,
   `destination` enum('Matane','Godbout','Baie-Comeau') NOT NULL,
   `prix` double NOT NULL,
-  `tempsDebutInscription` datetime NOT NULL
+  `tempsDebutInscription` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -61,7 +61,7 @@ CREATE TABLE `personne` (
 
 CREATE TABLE `vehicule` (
   `idVehicule` bigint(20) UNSIGNED NOT NULL,
-  `type` enum('Véhicule','Véhicule qui tire un autre élément','Camion','Motocyclette','Vélo','Véhicule électrique') NOT NULL,
+  `type` enum('Vehicule','Vehicule_qui_tire_un_autre_element','Camion','Motocyclette','Velo','Vehicule_electrique') NOT NULL,
   `largeur` double NOT NULL,
   `longeur` double NOT NULL,
   `numeroInscription` bigint(20) UNSIGNED NOT NULL
