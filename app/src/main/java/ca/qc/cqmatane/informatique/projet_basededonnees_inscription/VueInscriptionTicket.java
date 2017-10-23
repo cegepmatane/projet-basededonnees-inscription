@@ -2,6 +2,7 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
@@ -12,14 +13,18 @@ import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeV
 
 public class VueInscriptionTicket extends AppCompatActivity {
     private Inscription inscription;
-
     private float prixTotalFinal;
+
+    private TextView affichage_vue_inscription_numero_ticket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_ticket);
         inscription = Inscription.getInstance();
+        affichage_vue_inscription_numero_ticket = (TextView) findViewById(R.id.affichage_vue_inscription_numero_ticket);
+        calculerPrixBillet();
+        affichage_vue_inscription_numero_ticket.setText(prixTotalFinal + "");
     }
 
     /**
@@ -28,6 +33,9 @@ public class VueInscriptionTicket extends AppCompatActivity {
      */
     private void calculerPrixBillet() {
         calculerPrixParPersonne();
+        calculerPrixParVehicule();
+        float rabais = calculerLeRabais() * 100;
+        prixTotalFinal *= 1 + rabais;
     }
 
     /**
@@ -85,7 +93,7 @@ public class VueInscriptionTicket extends AppCompatActivity {
                 }
             }
 
-            if(vehiculeCourant.getType() == TypeVehicule.Vehicule_qui_tire_un_autre_element) {
+            else if(vehiculeCourant.getType() == TypeVehicule.Vehicule_qui_tire_un_autre_element) {
                 if (vehiculeCourant.getLongueur() <= 9.4) {
                     prixTotalFinal += 48.40;
                 }
@@ -95,13 +103,18 @@ public class VueInscriptionTicket extends AppCompatActivity {
                 }
             }
 
-            if(vehiculeCourant.getType() == TypeVehicule.Vehicule_qui_tire_un_autre_element) {
-                if (vehiculeCourant.getLongueur() <= 9.4) {
-                    prixTotalFinal += 48.40;
+            else if(vehiculeCourant.getType() == TypeVehicule.Camion) {
+                if (vehiculeCourant.getLargeur() <= 2.6) {
+                    prixTotalFinal += vehiculeCourant.getLargeur() * 19.40;
                 }
-                else if(vehiculeCourant.getLongueur() >= 9.4) {
-                    int longeurEnPlus = (int) (vehiculeCourant.getLongueur() - 9.4);
-                    prixTotalFinal += (48.40 + (longeurEnPlus * 19.40));
+                else if(vehiculeCourant.getLongueur() >= 2.6) {
+                    prixTotalFinal += vehiculeCourant.getLargeur() * 19.40;
+                }
+            }
+
+            else if(vehiculeCourant.getType() == TypeVehicule.Motocyclette) {
+                if (vehiculeCourant.getLargeur() <= 2.6) {
+                    prixTotalFinal += vehiculeCourant.getLargeur() * 38.65;
                 }
             }
         }
