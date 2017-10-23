@@ -15,7 +15,8 @@ public class Inscription {
     private TypeInscription type;
     private ArrayList<Personne> listePersonnes;
     private ArrayList<Vehicule> listeVehicules;
-    private String destination;
+    private String villeDepart;
+    private String villeArrivee;
     private String dateAller;
     private String dateRetour;
     private String heureAller;
@@ -116,11 +117,19 @@ public class Inscription {
         this.prix = prix;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getVilleDepart() {
+        return villeDepart;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setVilleDepart(String villeDepart) {
+        this.villeDepart = villeDepart;
+    }
+
+    public String getVilleArrivee() {
+        return villeArrivee;
+    }
+
+    public void setVilleArrivee(String villeArrivee) {
+        this.villeArrivee = villeArrivee;
     }
 }
