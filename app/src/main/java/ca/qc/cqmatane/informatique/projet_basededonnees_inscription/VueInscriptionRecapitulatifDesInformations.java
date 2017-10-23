@@ -22,4 +22,6 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         personne = Personne.getInstance();
         vehicule = Vehicule.getInstance();
     }
+
+
 }

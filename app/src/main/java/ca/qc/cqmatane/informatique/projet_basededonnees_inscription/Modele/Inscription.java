@@ -2,6 +2,8 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.Modele;
 
 import java.util.ArrayList;
 
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.TypeInscription;
+
 /**
  * Created by lucas on 16/10/2017.
  */
@@ -10,9 +12,10 @@ public class Inscription {
 
     private int numeroInscription;
     private String nom;
-    private String type;
+    private TypeInscription type;
     private ArrayList<Personne> listePersonnes;
     private ArrayList<Vehicule> listeVehicules;
+    private String destination;
     private String dateAller;
     private String dateRetour;
     private String heureAller;
@@ -45,12 +48,16 @@ public class Inscription {
         this.nom = nom;
     }
 
-    public String getType() {
+    public TypeInscription getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TypeInscription type) {
         this.type = type;
+    }
+
+    public static void setInstance(Inscription instance) {
+        Inscription.instance = instance;
     }
 
     public ArrayList<Personne> getListePersonnes() {
@@ -107,5 +114,13 @@ public class Inscription {
 
     public void setPrix(double prix) {
         this.prix = prix;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 }
