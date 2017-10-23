@@ -51,7 +51,16 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
 
 
     public void ajouterEcouteur() {
-        nom.setText("My Awesome Text");
+        nom.setText("Nom : "+inscription.getNom());
+        villeDepart.setText("Ville de départ : "+inscription.getVilleDepart());
+        villeArrivee.setText("Ville d'arrivée : "+inscription.getVilleArrivee());
+        nombrePassager.setText("Nombre de passagers : "+inscription.getListePersonnes().size());
+        nombreVehicule.setText("Nombre de véhicules : "+inscription.getListeVehicules().size());
+        dateAller.setText("Date de départ : "+inscription.getDateAller());
+        dateRetour.setText("Date de retour : "+inscription.getDateRetour());
+        heureAller.setText("Heure de l'aller : "+inscription.getHeureAller());
+        heureRetour.setText("Heure du retour : "+inscription.getHeureRetour());
+        prix.setText("Prix : "+String.valueOf(inscription.getPrix()));
     }
 
 
