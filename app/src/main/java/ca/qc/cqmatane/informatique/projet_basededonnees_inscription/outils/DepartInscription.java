@@ -1,7 +1,7 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils;
 
-public enum TypeInscription {
+public enum DepartInscription {
 
-    Aller, Retour
+    Matane, Godbout, Baie_Comeau
 
 }
