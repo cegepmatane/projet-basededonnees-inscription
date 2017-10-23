@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.VerificationHoraire;
 
 public class VueInscriptionQuestionDeBase extends AppCompatActivity {
 
@@ -25,6 +26,9 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_question_de_base);
+
+        VerificationHoraire.recupererHoraire(23, 10, 2017);
+
         RadioButton radioButtonAllerSimple = (RadioButton) findViewById(R.id.bouton_aller_simple);
         radioButtonAllerSimple.setOnClickListener(new View.OnClickListener() {
             @Override
