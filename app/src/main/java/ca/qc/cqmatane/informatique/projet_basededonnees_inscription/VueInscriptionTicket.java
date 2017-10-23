@@ -76,7 +76,33 @@ public class VueInscriptionTicket extends AppCompatActivity {
     private void calculerPrixParVehicule() {
         for(Vehicule vehiculeCourant : inscription.getListeVehicules()) {
             if(vehiculeCourant.getType() == TypeVehicule.Vehicule) {
-                if (vehiculeCourant.getLongueur() <= 6.4)
+                if (vehiculeCourant.getLongueur() <= 6.4) {
+                    prixTotalFinal += 80;
+                }
+                else if(vehiculeCourant.getLongueur() >= 6.4) {
+                    int longeurEnPlus = (int) (vehiculeCourant.getLongueur() - 6.4);
+                    prixTotalFinal += (80 + (longeurEnPlus * 19.40));
+                }
+            }
+
+            if(vehiculeCourant.getType() == TypeVehicule.Vehicule_qui_tire_un_autre_element) {
+                if (vehiculeCourant.getLongueur() <= 9.4) {
+                    prixTotalFinal += 48.40;
+                }
+                else if(vehiculeCourant.getLongueur() >= 9.4) {
+                    int longeurEnPlus = (int) (vehiculeCourant.getLongueur() - 9.4);
+                    prixTotalFinal += (48.40 + (longeurEnPlus * 19.40));
+                }
+            }
+
+            if(vehiculeCourant.getType() == TypeVehicule.Vehicule_qui_tire_un_autre_element) {
+                if (vehiculeCourant.getLongueur() <= 9.4) {
+                    prixTotalFinal += 48.40;
+                }
+                else if(vehiculeCourant.getLongueur() >= 9.4) {
+                    int longeurEnPlus = (int) (vehiculeCourant.getLongueur() - 9.4);
+                    prixTotalFinal += (48.40 + (longeurEnPlus * 19.40));
+                }
             }
         }
     }

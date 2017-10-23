@@ -1,5 +1,7 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele;
 
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
+
 /**
  * Created by lucas on 16/10/2017.
  */
@@ -7,7 +9,7 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele;
 public class Vehicule {
 
     private int id;
-    private String type;
+    private TypeVehicule type;
     private double largeur;
     private double longueur;
 
@@ -20,7 +22,7 @@ public class Vehicule {
 
     public Vehicule(){}
 
-    public Vehicule(int id, String type, double largeur, double longueur) {
+    public Vehicule(int id, TypeVehicule type, double largeur, double longueur) {
         this.id = id;
         this.type = type;
         this.largeur = largeur;
@@ -35,11 +37,11 @@ public class Vehicule {
         this.id = id;
     }
 
-    public String getType() {
+    public TypeVehicule getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TypeVehicule type) {
         this.type = type;
     }
 
