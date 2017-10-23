@@ -10,12 +10,9 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.Calendar;
-import java.util.Date;
 
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.Modele.Inscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 
 public class VueInscriptionDateAllerRetour extends AppCompatActivity {
     TextView calendrier_inscription_date_aller_retour_depart;

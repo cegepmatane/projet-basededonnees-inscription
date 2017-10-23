@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.Modele.Inscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 
 public class VueInscriptionQuestionDeBase extends AppCompatActivity {
 
