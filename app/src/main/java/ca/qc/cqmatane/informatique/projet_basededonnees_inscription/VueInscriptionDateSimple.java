@@ -7,14 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
-import java.util.Date;
 
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.Modele.Inscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 
 public class VueInscriptionDateSimple extends AppCompatActivity {
 

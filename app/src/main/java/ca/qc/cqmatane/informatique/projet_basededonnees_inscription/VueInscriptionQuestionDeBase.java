@@ -4,15 +4,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.Modele.Inscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 
 public class VueInscriptionQuestionDeBase extends AppCompatActivity {
 
     private Spinner spinnerDepart;
     private Spinner spinnerArrivee;
+    private EditText champNom;
+    private EditText champNbPassagers;
+    private EditText champNbVehicules;
+    private Button boutonValider;
     private Inscription inscription;
 
     @Override
@@ -44,6 +50,29 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
         spinnerDepart.setAdapter(adapter);
         spinnerArrivee.setAdapter(adapter);
 
+        champNom = (EditText) findViewById(R.id.text_nom);
+        champNbPassagers = (EditText) findViewById(R.id.text_nombre_personne);
+        champNbVehicules = (EditText) findViewById(R.id.text_nombre_vehicule);
         inscription = new Inscription();
+        champNom.setText(inscription.getNom());
+        try {
+            champNbPassagers.setText(inscription.getListePersonnes().size());
+            champNbVehicules.setText(inscription.getListeVehicules().size());
+        } catch (Exception e){
+
+        }
+
+        boutonValider = (Button) findViewById(R.id.bouton_valider);
+        boutonValider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inscription.setNom(champNom.getText().toString());
+
+            }
+        });
+
+
     }
+
+
 }
