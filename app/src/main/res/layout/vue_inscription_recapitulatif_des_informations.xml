@@ -41,6 +41,15 @@
         android:textSize="18sp" />
 
     <TextView
+        android:id="@+id/texte_type_recap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Trajet : Aller simple"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
         android:id="@+id/texte_nombre_passager_recap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
