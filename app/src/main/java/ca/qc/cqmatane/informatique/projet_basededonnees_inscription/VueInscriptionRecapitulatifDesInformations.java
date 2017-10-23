@@ -1,8 +1,12 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
@@ -24,6 +28,8 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
     protected TextView heureAller;
     protected TextView heureRetour;
     protected TextView prix;
+    protected Button boutonModifier;
+    protected Button boutonValider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,8 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         heureAller = (TextView)findViewById(R.id.texte_heure_aller_recap);
         heureRetour = (TextView)findViewById(R.id.texte_date_retour_recap);
         prix = (TextView)findViewById(R.id.texte_prix_recap);
+        boutonModifier = (Button) findViewById(R.id.action_modifier_recap);
+        boutonValider = (Button) findViewById(R.id.action_valider_recap);
 
 
         inscription = Inscription.getInstance();
@@ -61,6 +69,21 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         heureAller.setText("Heure de l'aller : "+inscription.getHeureAller());
         heureRetour.setText("Heure du retour : "+inscription.getHeureRetour());
         prix.setText("Prix : "+String.valueOf(inscription.getPrix()));
+
+
+        boutonModifier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    startActivity(new Intent(VueInscriptionRecapitulatifDesInformations.this, VueInscriptionQuestionDeBase.class));
+            }
+        });
+
+        boutonValider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VueInscriptionRecapitulatifDesInformations.this, VueInscriptionTicket.class));
+            }
+        });
     }
 
 
