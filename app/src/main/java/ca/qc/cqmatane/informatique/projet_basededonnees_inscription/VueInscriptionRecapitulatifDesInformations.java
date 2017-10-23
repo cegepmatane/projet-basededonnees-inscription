@@ -21,6 +21,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
     protected TextView nom;
     protected TextView villeDepart;
     protected TextView villeArrivee;
+    protected TextView type;
     protected TextView nombrePassager;
     protected TextView nombreVehicule;
     protected TextView dateAller;
@@ -39,6 +40,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         nom = (TextView)findViewById(R.id.texte_nom_recap);
         villeDepart = (TextView)findViewById(R.id.texte_ville_depart_recap);
         villeArrivee = (TextView)findViewById(R.id.texte_ville_arrivee_recap);
+        type = (TextView)findViewById(R.id.texte_type_recap);
         nombrePassager = (TextView)findViewById(R.id.texte_nombre_passager_recap);
         nombreVehicule = (TextView)findViewById(R.id.texte_nombre_vehicule_recap);
         dateAller = (TextView)findViewById(R.id.texte_date_aller_recap);
@@ -62,12 +64,21 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         nom.setText("Nom : "+inscription.getNom());
         villeDepart.setText("Ville de départ : "+inscription.getVilleDepart());
         villeArrivee.setText("Ville d'arrivée : "+inscription.getVilleArrivee());
+        type.setText("Trajet : "+inscription.getType());
         nombrePassager.setText("Nombre de passagers : "+inscription.getListePersonnes().size());
         nombreVehicule.setText("Nombre de véhicules : "+inscription.getListeVehicules().size());
         dateAller.setText("Date de départ : "+inscription.getDateAller());
-        dateRetour.setText("Date de retour : "+inscription.getDateRetour());
+        if (dateRetour != null) {
+            dateRetour.setText("Date de retour : " + inscription.getDateRetour());
+        } else {
+            dateRetour.setText("Aucune date de retour");
+        }
         heureAller.setText("Heure de l'aller : "+inscription.getHeureAller());
-        heureRetour.setText("Heure du retour : "+inscription.getHeureRetour());
+        if (heureRetour != null) {
+            heureRetour.setText("Heure du retour : " + inscription.getHeureRetour());
+        } else {
+            heureRetour.setText("Aucune heure de retour");
+        }
         prix.setText("Prix : "+String.valueOf(inscription.getPrix()));
 
 

@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 
 public class VueInscriptionQuestionDeBase extends AppCompatActivity {
 
@@ -20,27 +21,27 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
     private EditText champNbPassagers;
     private EditText champNbVehicules;
     private Button boutonValider;
+    private RadioButton boutonAllerSimple;
+    private RadioButton boutonAllerRetour;
     private Inscription inscription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_question_de_base);
-        RadioButton radioButtonAllerSimple = (RadioButton) findViewById(R.id.bouton_aller_simple);
-        radioButtonAllerSimple.setOnClickListener(new View.OnClickListener() {
+        boutonAllerSimple = (RadioButton) findViewById(R.id.bouton_aller_simple);
+        boutonAllerRetour = (RadioButton) findViewById(R.id.bouton_aller_retour);
+        boutonAllerSimple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RadioButton radioButtonAllerRetour = (RadioButton) findViewById(R.id.bouton_aller_retour);
-                radioButtonAllerRetour.setChecked(false);
+                boutonAllerRetour.setChecked(false);
             }
         });
 
-        RadioButton radioButtonAllerRetour = (RadioButton) findViewById(R.id.bouton_aller_retour);
-        radioButtonAllerRetour.setOnClickListener(new View.OnClickListener() {
+        boutonAllerRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RadioButton radioButtonAllerSimple = (RadioButton) findViewById(R.id.bouton_aller_simple);
-                radioButtonAllerSimple.setChecked(false);
+                 boutonAllerSimple.setChecked(false);
             }
         });
 
@@ -68,11 +69,12 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 inscription.setNom(champNom.getText().toString());
-                if (Integer.parseInt(champNbVehicules.getText().toString()) == 0){
-                    Intent intentNavigueQuestionDetaillees = new Intent(VueInscriptionQuestionDeBase.this, VueInscriptionQuestionDetailles.class);
-                    
-                }
-
+                if (boutonAllerSimple.isChecked())inscription.setType(TypeInscription.AllerSimple);
+                else inscription.setType(TypeInscription.AllerRetour);
+                Intent intentNavigueQuestionDetaillees = new Intent(VueInscriptionQuestionDeBase.this, VueInscriptionQuestionDetailles.class);
+                intentNavigueQuestionDetaillees.putExtra("nb_passagers",Integer.parseInt(champNbPassagers.getText().toString()));
+                intentNavigueQuestionDetaillees.putExtra("nb_Vehicules",Integer.parseInt(champNbVehicules.getText().toString()));
+                startActivity(intentNavigueQuestionDetaillees);
             }
         });
 
