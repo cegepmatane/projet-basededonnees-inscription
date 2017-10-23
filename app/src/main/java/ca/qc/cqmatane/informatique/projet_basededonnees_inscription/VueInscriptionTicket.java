@@ -7,6 +7,7 @@ import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscr
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
 
 
 public class VueInscriptionTicket extends AppCompatActivity {
@@ -74,8 +75,8 @@ public class VueInscriptionTicket extends AppCompatActivity {
 
     private void calculerPrixParVehicule() {
         for(Vehicule vehiculeCourant : inscription.getListeVehicules()) {
-            if(vehiculeCourant.getType() == ) {
-                if (vehiculeCourant.getLongueur() <= )
+            if(vehiculeCourant.getType() == TypeVehicule.Vehicule) {
+                if (vehiculeCourant.getLongueur() <= 6.4)
             }
         }
     }
