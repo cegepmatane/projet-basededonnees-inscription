@@ -5,7 +5,7 @@
     android:padding="15dp">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/texte_titre_recap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -23,16 +23,25 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/texte_destination_recap"
+        android:id="@+id/texte_ville_depart_recap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Déstination : Matane"
+        android:text="Ville de départ : Matane"
         android:textAlignment="center"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/texte_nombre_passager_racap"
+        android:id="@+id/texte_ville_arrivee_recap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Ville d'arrivée : Godbout"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/texte_nombre_passager_recap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -41,11 +50,56 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/texte_nombre_vehicule_racap"
+        android:id="@+id/texte_nombre_vehicule_recap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="Nombre de véhicules : 4"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/texte_date_aller_recap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Date de départ : 11/11/2017"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/texte_date_retour_recap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Date de retour : 14/11/2017"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/texte_heure_aller_recap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Heure de l'aller : 15h00"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/texte_date_retour_recap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Heure du retour : 10h00"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/texte_prix_recap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Prix : 45$"
         android:textAlignment="center"
         android:textSize="18sp" />
 

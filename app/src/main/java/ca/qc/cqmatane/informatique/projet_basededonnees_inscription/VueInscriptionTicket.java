@@ -8,6 +8,7 @@ import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Perso
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
 
+
 public class VueInscriptionTicket extends AppCompatActivity {
     private Inscription inscription;
 
