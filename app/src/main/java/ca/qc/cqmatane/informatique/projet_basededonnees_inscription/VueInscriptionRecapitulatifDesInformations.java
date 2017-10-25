@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.ConnexionHTTP;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.GestionXML;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
@@ -135,8 +136,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GestionXML.getInstance(VueInscriptionRecapitulatifDesInformations.this).ecrire();
-                startActivity(new Intent(VueInscriptionRecapitulatifDesInformations.this, VueInscriptionTicket.class));
+                new ConnexionHTTP(VueInscriptionRecapitulatifDesInformations.this).execute();
             }
         });
     }
