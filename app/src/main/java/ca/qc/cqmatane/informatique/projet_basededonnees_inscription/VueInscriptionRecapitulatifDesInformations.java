@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 
 public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivity {
 
@@ -38,7 +38,6 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_recapitulatif_des_informations);
 
-
         // Récupération des champs dans le XML
         nom = (TextView)findViewById(R.id.texte_nom_recap);
         villeDepart = (TextView)findViewById(R.id.texte_ville_depart_recap);
@@ -59,6 +58,11 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         inscription = Inscription.getInstance();
         personne = Personne.getInstance();
         vehicule = Vehicule.getInstance();
+
+        inscription.setNumeroInscription(0);
+        inscription.setNom("Nicolas");
+        inscription.setType(TypeInscription.Simple);
+
 
         ajouterEcouteur(); // Appelle la méthode qui change la page dynamiquement en fonction de l'utilisateur
     }
