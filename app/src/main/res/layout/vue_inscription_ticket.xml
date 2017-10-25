@@ -19,8 +19,23 @@
         android:id="@+id/affichage_vue_inscription_numero_ticket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textSize="25sp"
         tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="103dp" />
+        tools:layout_editor_absoluteY="105dp" />
+
+    <TextView
+        android:id="@+id/affichage_vue_inscription_prix_ticket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prix :"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="190dp" />
+
+    <TextView
+        android:id="@+id/affichage_vue_inscription_prix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="263dp" />
 </android.support.constraint.ConstraintLayout>

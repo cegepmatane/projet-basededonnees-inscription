@@ -16,6 +16,7 @@ public class VueInscriptionTicket extends AppCompatActivity {
     private float prixTotalFinal;
 
     private TextView affichage_vue_inscription_numero_ticket;
+    private TextView affichage_vue_inscription_prix;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +24,12 @@ public class VueInscriptionTicket extends AppCompatActivity {
         setContentView(R.layout.vue_inscription_ticket);
         inscription = Inscription.getInstance();
         affichage_vue_inscription_numero_ticket = (TextView) findViewById(R.id.affichage_vue_inscription_numero_ticket);
+        affichage_vue_inscription_prix = (TextView) findViewById(R.id.affichage_vue_inscription_prix);
+
         calculerPrixBillet();
-        affichage_vue_inscription_numero_ticket.setText(prixTotalFinal + "");
+        affichage_vue_inscription_prix.setText(prixTotalFinal + "");
+
+        
     }
 
     /**
@@ -81,6 +86,9 @@ public class VueInscriptionTicket extends AppCompatActivity {
         }
     }
 
+    /**
+     * Calcule le prix de tout les véhicule et les ajoute au prix final total
+     */
     private void calculerPrixParVehicule() {
         for(Vehicule vehiculeCourant : inscription.getListeVehicules()) {
             if(vehiculeCourant.getType() == TypeVehicule.Vehicule) {
