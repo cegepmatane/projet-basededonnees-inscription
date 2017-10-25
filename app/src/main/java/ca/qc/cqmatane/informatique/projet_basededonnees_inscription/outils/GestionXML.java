@@ -113,7 +113,7 @@ public class GestionXML {
                             xmlSerializer.endTag(null, "longeur");
                         xmlSerializer.endTag(null, "vehicule");
                     }
-                xmlSerializer.endTag(null, "personnes");
+                xmlSerializer.endTag(null, "vehicules");
 
             xmlSerializer.endTag(null, "inscription");
             xmlSerializer.endDocument();

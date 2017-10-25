@@ -7,10 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.GestionXML;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
 
 public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivity {
 
@@ -48,7 +52,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         dateAller = (TextView)findViewById(R.id.texte_date_aller_recap);
         dateRetour = (TextView)findViewById(R.id.texte_date_retour_recap);
         heureAller = (TextView)findViewById(R.id.texte_heure_aller_recap);
-        heureRetour = (TextView)findViewById(R.id.texte_date_retour_recap);
+        heureRetour = (TextView)findViewById(R.id.texte_heure_retour_recap);
         prix = (TextView)findViewById(R.id.texte_prix_recap);
         boutonModifier = (Button) findViewById(R.id.action_modifier_recap);
         boutonValider = (Button) findViewById(R.id.action_valider_recap);
@@ -62,6 +66,25 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         inscription.setNumeroInscription(0);
         inscription.setNom("Nicolas");
         inscription.setType(TypeInscription.Simple);
+
+        ArrayList<Personne> personnes = new ArrayList<>();
+        personnes.add(new Personne(51, 18, false));
+        personnes.add(new Personne(52, 52, true));
+        inscription.setListePersonnes(personnes);
+
+        ArrayList<Vehicule> vehicules = new ArrayList<>();
+        vehicules.add(new Vehicule(51, TypeVehicule.Camion, 10, 15));
+        vehicules.add(new Vehicule(51, TypeVehicule.Vehicule, 5, 5));
+        inscription.setListeVehicules(vehicules);
+
+        inscription.setDateAller("2017-05-21");
+        inscription.setHeureAller("15:00");
+        inscription.setDateRetour("2017-06-21");
+        inscription.setHeureRetour("17:00");
+
+        inscription.setPrix(90051);
+        inscription.setVilleArrivee("Matane");
+        inscription.setVilleDepart("Godbout");
 
 
         ajouterEcouteur(); // Appelle la méthode qui change la page dynamiquement en fonction de l'utilisateur
@@ -91,7 +114,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         } else {
             heureRetour.setText("Aucune heure de retour");
         }
-        prix.setText("Prix : "+String.valueOf(inscription.getPrix()));
+        prix.setText("Prix : "+ inscription.getPrix() + "$");
 
         ecouteurBoutons(); // Appelle la méthode pour écouter les boutons
     }
@@ -112,6 +135,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GestionXML.getInstance(VueInscriptionRecapitulatifDesInformations.this).ecrire();
                 startActivity(new Intent(VueInscriptionRecapitulatifDesInformations.this, VueInscriptionTicket.class));
             }
         });
