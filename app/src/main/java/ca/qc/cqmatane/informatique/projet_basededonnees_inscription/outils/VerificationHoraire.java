@@ -10,8 +10,11 @@ public class VerificationHoraire {
 
     private static final String FORMAT_DATE = "dd/MM/yyyy";
 
-    private static final String JOUR_AVANT_PRINTEMPS_AVRIL_2017 = "31/03/2017";
-    private static final String JOUR_APRES_PRINTEMPS_AVRIL_2017 = "01/05/2017";
+    private static final String JOUR_AVANT_PRINTEMPS_AVRIL = "31/03/2017";
+    private static final String JOUR_APRES_PRINTEMPS_AVRIL = "01/05/2017";
+
+    private static final String JOUR_AVANT_PRINTEMPS_MAI_JUILLET = "30/04/2017";
+    private static final String JOUR_APRES_PRINTEMPS_MAI_JUILLET = "22/07/2017";
 
     public static List<String> recupererHoraire(int jour, int mois, int annee, DepartInscription depart, DepartInscription destination){
 
@@ -46,9 +49,15 @@ public class VerificationHoraire {
             }
 
             Date dateVerifiee = c.getTime();
-            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_PRINTEMPS_AVRIL_2017))
-                    && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_PRINTEMPS_AVRIL_2017))){
+            //On vérifie si la date correspond à la période Printemps Avril
+            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_PRINTEMPS_AVRIL))
+                    && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_PRINTEMPS_AVRIL))){
                 return recupererHorairesPrintempsAvril(jourVerifie, depart, destination);
+            }
+            //On vérifie si la date correspond à la période Printemps Mai Juillet
+            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_PRINTEMPS_MAI_JUILLET))
+                    && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_PRINTEMPS_MAI_JUILLET))){
+                return recupererHorairesPrintempsMaiJuillet(jourVerifie, depart, destination);
             }
 
         }
@@ -94,6 +103,48 @@ public class VerificationHoraire {
             else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("11:00");
             else if(jour == JourInscription.JEUDI) horairesDisponibles.add("17:00");
             else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("17:00");
+            else if(jour == JourInscription.SAMEDI) horairesDisponibles.add("17:00");
+            else if(jour == JourInscription.DIMANCHE) horairesDisponibles.add("18:00");
+        }
+        return horairesDisponibles;
+    }
+
+    //PRINTEMPS - DU 1ER MAI AU 21 JUILLET 2017
+    private static List<String> recupererHorairesPrintempsMaiJuillet(JourInscription jour, DepartInscription depart, DepartInscription destination){
+        List<String> horairesDisponibles = new ArrayList<>();
+        if(depart == DepartInscription.Matane && destination == DepartInscription.Godbout){
+            if(jour == JourInscription.LUNDI) horairesDisponibles.add("07:00");
+            else if(jour == JourInscription.MARDI) horairesDisponibles.add("07:00");
+            else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("14:00");
+            else if(jour == JourInscription.JEUDI) horairesDisponibles.add("07:00");
+            else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("07:00");
+            else if(jour == JourInscription.SAMEDI) horairesDisponibles.add("08:00");
+            else if(jour == JourInscription.DIMANCHE) horairesDisponibles.add("09:00");
+        }
+        else if(depart == DepartInscription.Godbout && destination == DepartInscription.Matane){
+            if(jour == JourInscription.LUNDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.MARDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("18:00");
+            else if(jour == JourInscription.JEUDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.SAMEDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.DIMANCHE) horairesDisponibles.add("12:00");
+        }
+        else if(depart == DepartInscription.Matane && destination == DepartInscription.Baie_Comeau){
+            if(jour == JourInscription.LUNDI) horairesDisponibles.add("15:00");
+            else if(jour == JourInscription.MARDI) horairesDisponibles.add("15:00");
+            else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("07:00");
+            else if(jour == JourInscription.JEUDI) horairesDisponibles.add("15:00");
+            else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("15:00");
+            else if(jour == JourInscription.SAMEDI) horairesDisponibles.add("14:00");
+            else if(jour == JourInscription.DIMANCHE) horairesDisponibles.add("15:00");
+        }
+        else if(depart == DepartInscription.Baie_Comeau && destination == DepartInscription.Matane){
+            if(jour == JourInscription.LUNDI) horairesDisponibles.add("18:00");
+            else if(jour == JourInscription.MARDI) horairesDisponibles.add("18:00");
+            else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.JEUDI) horairesDisponibles.add("18:00");
+            else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("18:00");
             else if(jour == JourInscription.SAMEDI) horairesDisponibles.add("17:00");
             else if(jour == JourInscription.DIMANCHE) horairesDisponibles.add("18:00");
         }
