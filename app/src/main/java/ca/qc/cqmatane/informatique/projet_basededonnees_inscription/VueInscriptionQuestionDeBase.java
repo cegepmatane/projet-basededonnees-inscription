@@ -69,8 +69,10 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 inscription.setNom(champNom.getText().toString());
-                if (boutonAllerSimple.isChecked())inscription.setType(TypeInscription.AllerSimple);
-                else inscription.setType(TypeInscription.AllerRetour);
+                if (boutonAllerSimple.isChecked())inscription.setType(TypeInscription.Simple);
+                else inscription.setType(TypeInscription.Retour);
+                inscription.setVilleDepart(spinnerDepart.getSelectedItem().toString());
+                inscription.setVilleArrivee(spinnerArrivee.getSelectedItem().toString());
                 Intent intentNavigueQuestionDetaillees = new Intent(VueInscriptionQuestionDeBase.this, VueInscriptionQuestionDetailles.class);
                 intentNavigueQuestionDetaillees.putExtra("nb_passagers",Integer.parseInt(champNbPassagers.getText().toString()));
                 intentNavigueQuestionDetaillees.putExtra("nb_Vehicules",Integer.parseInt(champNbVehicules.getText().toString()));

@@ -3,9 +3,15 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class VerificationHoraire {
+
+    private static final String FORMAT_DATE = "dd/MM/yyyy";
+
+    private static final String JOUR_AVANT_PRINTEMPS_AVRIL_2017 = "31/03/2017";
+    private static final String JOUR_APRES_PRINTEMPS_AVRIL_2017 = "01/05/2017";
 
     public static List<String> recupererHoraire(int jour, int mois, int annee, DepartInscription depart, DepartInscription destination){
 
@@ -13,7 +19,7 @@ public class VerificationHoraire {
 
         try{
             Calendar c = Calendar.getInstance();
-            c.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(jour+"/"+mois+"/"+annee));
+            c.setTime(new SimpleDateFormat(FORMAT_DATE).parse(jour+"/"+mois+"/"+annee));
             JourInscription jourVerifie;
             switch(c.get(Calendar.DAY_OF_WEEK)){
                 case 1:
@@ -38,6 +44,13 @@ public class VerificationHoraire {
                     jourVerifie = JourInscription.SAMEDI;
                     break;
             }
+
+            Date dateVerifiee = c.getTime();
+            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_PRINTEMPS_AVRIL_2017))
+                    && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_PRINTEMPS_AVRIL_2017))){
+                return recupererHorairesPrintempsAvril(jourVerifie, depart, destination);
+            }
+
         }
         catch(Exception e){
             System.out.println("Mauvaise date envoyée !");
@@ -46,7 +59,7 @@ public class VerificationHoraire {
     }
 
     //PRINTEMPS - DU 1ER AU 30 AVRIL 2017
-    public static List<String> recupererHorairesPrintempsAvril(JourInscription jour, DepartInscription depart, DepartInscription destination){
+    private static List<String> recupererHorairesPrintempsAvril(JourInscription jour, DepartInscription depart, DepartInscription destination){
         List<String> horairesDisponibles = new ArrayList<>();
         if(depart == DepartInscription.Matane && destination == DepartInscription.Godbout){
             if(jour == JourInscription.LUNDI) horairesDisponibles.add("08:00");

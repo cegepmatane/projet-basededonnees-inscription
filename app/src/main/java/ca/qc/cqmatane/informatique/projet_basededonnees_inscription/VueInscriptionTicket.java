@@ -62,7 +62,7 @@ public class VueInscriptionTicket extends AppCompatActivity {
      */
     private void calculerPrixParPersonne() {
         for(Personne personneCourante : inscription.getListePersonnes()) {
-            if (inscription.getType() == TypeInscription.AllerSimple) {
+            if (inscription.getType() == TypeInscription.Simple) {
                 if(personneCourante.getAge() >= 0 && personneCourante.getAge() <= 4)
                     prixTotalFinal += 0;
                 else if(personneCourante.getAge() >= 5 && personneCourante.getAge() <= 15)
@@ -73,7 +73,7 @@ public class VueInscriptionTicket extends AppCompatActivity {
                     prixTotalFinal += 16.80;
             }
 
-            if (inscription.getType() == TypeInscription.AllerRetour) {
+            if (inscription.getType() == TypeInscription.Retour) {
                 if(personneCourante.getAge() >= 0 && personneCourante.getAge() <= 4)
                     prixTotalFinal += 0;
                 else if(personneCourante.getAge() >= 5 && personneCourante.getAge() <= 15)
