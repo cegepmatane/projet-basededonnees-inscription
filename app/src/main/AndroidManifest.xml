@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.qc.cqmatane.informatique.projet_basededonnees_inscription">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +24,7 @@
         <activity android:name=".VueInscriptionDateSimple" />
         <activity android:name=".VueInscriptionRecapitulatifDesInformations" />
         <activity android:name=".VueInscriptionTicket" />
-        <activity android:name=".VueInscriptionQuestionDetailles"></activity>
+        <activity android:name=".VueInscriptionQuestionDetailles" />
     </application>
 
 </manifest>
