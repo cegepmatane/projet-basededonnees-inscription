@@ -32,11 +32,14 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
     protected Button boutonModifier;
     protected Button boutonValider;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_recapitulatif_des_informations);
 
+
+        // Récupération des champs dans le XML
         nom = (TextView)findViewById(R.id.texte_nom_recap);
         villeDepart = (TextView)findViewById(R.id.texte_ville_depart_recap);
         villeArrivee = (TextView)findViewById(R.id.texte_ville_arrivee_recap);
@@ -52,14 +55,19 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         boutonValider = (Button) findViewById(R.id.action_valider_recap);
 
 
+        // Récupération des instances des différents modèles
         inscription = Inscription.getInstance();
         personne = Personne.getInstance();
         vehicule = Vehicule.getInstance();
 
-        ajouterEcouteur();
+        ajouterEcouteur(); // Appelle la méthode qui change la page dynamiquement en fonction de l'utilisateur
     }
 
 
+
+    /**
+     * Méthode qui permet de remplir tous les champs dans le récapitulatif
+     */
     public void ajouterEcouteur() {
         nom.setText("Nom : "+inscription.getNom());
         villeDepart.setText("Ville de départ : "+inscription.getVilleDepart());
@@ -68,24 +76,32 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         nombrePassager.setText("Nombre de passagers : "+inscription.getListePersonnes().size());
         nombreVehicule.setText("Nombre de véhicules : "+inscription.getListeVehicules().size());
         dateAller.setText("Date de départ : "+inscription.getDateAller());
-        if (dateRetour != null) {
+        if (dateRetour != null) { // Vérifie si l'utilisateur a pris un aller-retour
             dateRetour.setText("Date de retour : " + inscription.getDateRetour());
         } else {
             dateRetour.setText("Aucune date de retour");
         }
         heureAller.setText("Heure de l'aller : "+inscription.getHeureAller());
-        if (heureRetour != null) {
+        if (heureRetour != null) { // Vérifie si l'utilisateur a pris un aller-retour
             heureRetour.setText("Heure du retour : " + inscription.getHeureRetour());
         } else {
             heureRetour.setText("Aucune heure de retour");
         }
         prix.setText("Prix : "+String.valueOf(inscription.getPrix()));
 
+        ecouteurBoutons(); // Appelle la méthode pour écouter les boutons
+    }
 
+
+    
+    /**
+     * Méthode qui sert à écouter les boutons modifier et valider
+     */
+    public void ecouteurBoutons(){
         boutonModifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    startActivity(new Intent(VueInscriptionRecapitulatifDesInformations.this, VueInscriptionQuestionDeBase.class));
+                startActivity(new Intent(VueInscriptionRecapitulatifDesInformations.this, VueInscriptionQuestionDeBase.class));
             }
         });
 
@@ -96,6 +112,4 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
             }
         });
     }
-
-
 }
