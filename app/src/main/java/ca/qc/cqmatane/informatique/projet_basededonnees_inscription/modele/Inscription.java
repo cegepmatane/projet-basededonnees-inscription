@@ -54,10 +54,6 @@ public class Inscription {
         this.type = type;
     }
 
-    public static void setInstance(Inscription instance) {
-        Inscription.instance = instance;
-    }
-
     public ArrayList<Personne> getListePersonnes() {
         return listePersonnes;
     }
