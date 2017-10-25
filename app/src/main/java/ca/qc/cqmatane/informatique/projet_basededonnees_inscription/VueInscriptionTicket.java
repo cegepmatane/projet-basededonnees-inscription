@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.GestionXML;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
@@ -29,7 +30,8 @@ public class VueInscriptionTicket extends AppCompatActivity {
         calculerPrixBillet();
         affichage_vue_inscription_prix.setText(prixTotalFinal + "");
 
-        
+        String numeroInscription = GestionXML.getInstance(getApplicationContext()).getNumeroInscription();
+        affichage_vue_inscription_numero_ticket.setText(numeroInscription);
     }
 
     /**
