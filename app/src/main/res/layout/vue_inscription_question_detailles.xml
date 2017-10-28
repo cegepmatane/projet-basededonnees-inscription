@@ -6,4 +6,101 @@
     android:layout_height="match_parent"
     tools:context="ca.qc.cqmatane.informatique.projet_basededonnees_inscription.VueInscriptionQuestionDetailles">
 
+    <TextView
+        android:id="@+id/text_pricipale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Indiquez le nombre de passagers par tranche d'âge"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="9dp" />
+
+    <EditText
+        android:id="@+id/passagers_0_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="De 0 à 4 ans"
+        android:inputType="textPersonName"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/text_pricipale"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/passagers_5_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="De 5 à 15 ans"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/passagers_0_4"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/passagers_16_64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="De 6 à 64 ans"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/passagers_5_15"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/passagers_65_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="65 ans ou plus"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/passagers_16_64"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/passagers_accompagnateur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="Accompagnateur d'un handicapé"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        app:layout_constraintTop_toBottomOf="@+id/passagers_65_plus"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/button_valider_passagers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Valider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passagers_accompagnateur"
+        app:layout_constraintVertical_bias="0.509"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 </android.support.constraint.ConstraintLayout>
