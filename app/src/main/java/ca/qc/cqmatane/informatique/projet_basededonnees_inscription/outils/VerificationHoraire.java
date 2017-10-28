@@ -25,6 +25,26 @@ public class VerificationHoraire {
     private static final String JOUR_AVANT_HIVER = "09/10/2017";
     private static final String JOUR_APRES_HIVER = "01/04/2018";
 
+    private static final String JOUR_FETES_1 = "23/12/2017";
+    private static final String JOUR_FETES_2 = "24/12/2017";
+    private static final String JOUR_FETES_3 = "26/12/2017";
+    private static final String JOUR_FETES_4 = "28/12/2017";
+    private static final String JOUR_FETES_5 = "30/12/2017";
+    private static final String JOUR_FETES_6 = "31/12/2017";
+    private static final String JOUR_FETES_7 = "02/01/2018";
+
+    private static final String JOUR_SANS_TRAVERSEE_1 = "25/12/2017";
+    private static final String JOUR_SANS_TRAVERSEE_2 = "01/01/2018";
+
+    /**
+     * Fonction principale qui renvoie les horaires disponibles en fonction de la date
+     * @param jour Jour de la date à vérifier
+     * @param mois Mois de la date à vérifier
+     * @param annee Année de la date à vérifier
+     * @param depart Destination de départ
+     * @param destination Destination d'arrivée
+     * @return Liste des horaires disponibles en String
+     */
     public static List<String> recupererHoraire(int jour, int mois, int annee, DepartInscription depart, DepartInscription destination){
         try{
             //On récupère la date actuelle
@@ -56,29 +76,46 @@ public class VerificationHoraire {
                     break;
             }
 
+            //On récupère la date actuelle pour la comparer par la suite
             Date dateVerifiee = c.getTime();
+
+            //On vérifie si la date correspond à la période où il n'y a pas de traversée
+            if(dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_SANS_TRAVERSEE_1))
+                    || dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_SANS_TRAVERSEE_2))){
+                return new ArrayList<>(); // On renvoie une liste vide puisque qu'il n'y a aucune traversée lors de ces dates
+            }
+            //On vérifie si la date correspond à la période des fêtes
+            else if(dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_FETES_1))
+                    || dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_FETES_2))
+                    || dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_FETES_3))
+                    || dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_FETES_4))
+                    || dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_FETES_5))
+                    || dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_FETES_6))
+                    || dateVerifiee.equals(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_FETES_7))){
+                return recupererHorairesFetes(depart, destination);
+            }
             //On vérifie si la date correspond à la période Printemps Avril
-            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_PRINTEMPS_AVRIL))
+            else if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_PRINTEMPS_AVRIL))
                     && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_PRINTEMPS_AVRIL))){
                 return recupererHorairesPrintempsAvril(jourVerifie, depart, destination);
             }
             //On vérifie si la date correspond à la période Printemps Mai Juillet
-            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_PRINTEMPS_MAI_JUILLET))
+            else if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_PRINTEMPS_MAI_JUILLET))
                     && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_PRINTEMPS_MAI_JUILLET))){
                 return recupererHorairesPrintempsMaiJuillet(jourVerifie, depart, destination);
             }
             //On vérifie si la date correspond à la période Été
-            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_ETE))
+            else if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_ETE))
                     && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_ETE))){
                 return recupererHorairesEte(jourVerifie, depart, destination);
             }
             //On vérifie si la date correspond à la période Automne
-            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_AUTOMNE))
+            else if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_AUTOMNE))
                     && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_AUTOMNE))){
                 return recupererHorairesAutomne(jourVerifie, depart, destination);
             }
             //On vérifie si la date correspond à la période Hiver
-            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_HIVER))
+            else if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_HIVER))
                     && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_HIVER))){
                 return recupererHorairesHiver(jourVerifie, depart, destination);
             }
@@ -89,6 +126,24 @@ public class VerificationHoraire {
         }
 
         return new ArrayList<>(); // On renvoie une liste vide puisque aucune date n'a été trouvée
+    }
+
+    //FETES
+    private static List<String> recupererHorairesFetes(DepartInscription depart, DepartInscription destination){
+        List<String> horairesDisponibles = new ArrayList<>();
+        if(depart == DepartInscription.Matane && destination == DepartInscription.Godbout){
+            horairesDisponibles.add("08:00");
+        }
+        else if(depart == DepartInscription.Godbout && destination == DepartInscription.Matane){
+            horairesDisponibles.add("11:00");
+        }
+        else if(depart == DepartInscription.Matane && destination == DepartInscription.Baie_Comeau){
+            horairesDisponibles.add("14:00");
+        }
+        else if(depart == DepartInscription.Baie_Comeau && destination == DepartInscription.Matane){
+            horairesDisponibles.add("17:00");
+        }
+        return horairesDisponibles;
     }
 
     //PRINTEMPS AVRIL - DU 1ER AU 30 AVRIL 2017
