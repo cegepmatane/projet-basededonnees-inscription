@@ -173,4 +173,45 @@ public class TestVerificationHoraire {
         assertEquals("17:00", VerificationHoraire.recupererHoraire(7, 10, 2017, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
         assertEquals("18:00", VerificationHoraire.recupererHoraire(8, 10, 2017, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
     }
+
+    @Test
+    public void testHiverMataneGodbout(){
+        assertEquals("08:00", VerificationHoraire.recupererHoraire(16, 10, 2017, DepartInscription.Matane, DepartInscription.Godbout).get(0));
+        assertEquals("08:00", VerificationHoraire.recupererHoraire(10, 10, 2017, DepartInscription.Matane, DepartInscription.Godbout).get(0));
+        assertEquals("14:00", VerificationHoraire.recupererHoraire(11, 10, 2017, DepartInscription.Matane, DepartInscription.Godbout).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(12, 10, 2017, DepartInscription.Matane, DepartInscription.Godbout).isEmpty());
+        assertEquals("08:00", VerificationHoraire.recupererHoraire(13, 10, 2017, DepartInscription.Matane, DepartInscription.Godbout).get(0));
+        assertEquals("08:00", VerificationHoraire.recupererHoraire(14, 10, 2017, DepartInscription.Matane, DepartInscription.Godbout).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(15, 10, 2017, DepartInscription.Matane, DepartInscription.Godbout).isEmpty());
+    }
+    @Test
+    public void testHiverGodboutMatane(){
+        assertEquals("11:00", VerificationHoraire.recupererHoraire(25, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertEquals("17:00", VerificationHoraire.recupererHoraire(26, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertEquals("17:00", VerificationHoraire.recupererHoraire(27, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(28, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).isEmpty());
+        assertEquals("11:00", VerificationHoraire.recupererHoraire(29, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertEquals("11:00", VerificationHoraire.recupererHoraire(30, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(31, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).isEmpty());
+    }
+    @Test
+    public void testHiverMataneBaieComeau(){
+        assertEquals("14:00", VerificationHoraire.recupererHoraire(5, 2, 2018, DepartInscription.Matane, DepartInscription.Baie_Comeau).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(6, 2, 2017, DepartInscription.Matane, DepartInscription.Baie_Comeau).isEmpty());
+        assertEquals("08:00", VerificationHoraire.recupererHoraire(7, 2, 2018, DepartInscription.Matane, DepartInscription.Baie_Comeau).get(0));
+        assertEquals("08:00", VerificationHoraire.recupererHoraire(8, 2, 2018, DepartInscription.Matane, DepartInscription.Baie_Comeau).get(0));
+        assertEquals("14:00", VerificationHoraire.recupererHoraire(9, 2, 2018, DepartInscription.Matane, DepartInscription.Baie_Comeau).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(10, 2, 2017, DepartInscription.Matane, DepartInscription.Baie_Comeau).isEmpty());
+        assertEquals("15:00", VerificationHoraire.recupererHoraire(11, 2, 2018, DepartInscription.Matane, DepartInscription.Baie_Comeau).get(0));
+    }
+    @Test
+    public void testHiverBaieComeauMatane(){
+        assertEquals("17:00", VerificationHoraire.recupererHoraire(26, 3, 2018, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(27, 3, 2017, DepartInscription.Baie_Comeau, DepartInscription.Matane).isEmpty());
+        assertEquals("11:00", VerificationHoraire.recupererHoraire(28, 3, 2018, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
+        assertEquals("17:00", VerificationHoraire.recupererHoraire(29, 3, 2018, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
+        assertEquals("17:00", VerificationHoraire.recupererHoraire(30, 3, 2018, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(31, 3, 2018, DepartInscription.Baie_Comeau, DepartInscription.Matane).isEmpty());
+        assertEquals("18:00", VerificationHoraire.recupererHoraire(25, 3, 2018, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
+    }
 }
