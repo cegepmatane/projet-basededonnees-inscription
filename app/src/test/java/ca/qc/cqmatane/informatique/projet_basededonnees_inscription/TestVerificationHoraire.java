@@ -186,13 +186,13 @@ public class TestVerificationHoraire {
     }
     @Test
     public void testHiverGodboutMatane(){
-        assertEquals("11:00", VerificationHoraire.recupererHoraire(25, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
-        assertEquals("17:00", VerificationHoraire.recupererHoraire(26, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
-        assertEquals("17:00", VerificationHoraire.recupererHoraire(27, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
-        assertTrue(VerificationHoraire.recupererHoraire(28, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).isEmpty());
-        assertEquals("11:00", VerificationHoraire.recupererHoraire(29, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
-        assertEquals("11:00", VerificationHoraire.recupererHoraire(30, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
-        assertTrue(VerificationHoraire.recupererHoraire(31, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).isEmpty());
+        assertEquals("11:00", VerificationHoraire.recupererHoraire(11, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertEquals("17:00", VerificationHoraire.recupererHoraire(12, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertEquals("17:00", VerificationHoraire.recupererHoraire(13, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(14, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).isEmpty());
+        assertEquals("11:00", VerificationHoraire.recupererHoraire(15, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertEquals("11:00", VerificationHoraire.recupererHoraire(16, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).get(0));
+        assertTrue(VerificationHoraire.recupererHoraire(17, 12, 2017, DepartInscription.Godbout, DepartInscription.Matane).isEmpty());
     }
     @Test
     public void testHiverMataneBaieComeau(){
