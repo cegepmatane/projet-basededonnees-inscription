@@ -22,6 +22,9 @@ public class VerificationHoraire {
     private static final String JOUR_AVANT_AUTOMNE = "04/09/2017";
     private static final String JOUR_APRES_AUTOMNE = "10/10/2017";
 
+    private static final String JOUR_AVANT_HIVER = "09/10/2017";
+    private static final String JOUR_APRES_HIVER = "01/04/2018";
+
     public static List<String> recupererHoraire(int jour, int mois, int annee, DepartInscription depart, DepartInscription destination){
         try{
             //On récupère la date actuelle
@@ -73,6 +76,11 @@ public class VerificationHoraire {
             if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_AUTOMNE))
                     && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_AUTOMNE))){
                 return recupererHorairesAutomne(jourVerifie, depart, destination);
+            }
+            //On vérifie si la date correspond à la période Hiver
+            if(dateVerifiee.after(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_AVANT_HIVER))
+                    && dateVerifiee.before(new SimpleDateFormat(FORMAT_DATE).parse(JOUR_APRES_HIVER))){
+                return recupererHorairesHiver(jourVerifie, depart, destination);
             }
 
         }
@@ -250,6 +258,40 @@ public class VerificationHoraire {
             else if(jour == JourInscription.JEUDI) horairesDisponibles.add("18:00");
             else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("18:00");
             else if(jour == JourInscription.SAMEDI) horairesDisponibles.add("17:00");
+            else if(jour == JourInscription.DIMANCHE) horairesDisponibles.add("18:00");
+        }
+        return horairesDisponibles;
+    }
+
+    //HIVER - DU 10 OCTOBRE 2017 AU 31 MARS 2018
+    private static List<String> recupererHorairesHiver(JourInscription jour, DepartInscription depart, DepartInscription destination){
+        List<String> horairesDisponibles = new ArrayList<>();
+        if(depart == DepartInscription.Matane && destination == DepartInscription.Godbout){
+            if(jour == JourInscription.LUNDI) horairesDisponibles.add("08:00");
+            else if(jour == JourInscription.MARDI) horairesDisponibles.add("08:00");
+            else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("14:00");
+            else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("08:00");
+            else if(jour == JourInscription.SAMEDI) horairesDisponibles.add("08:00");
+        }
+        else if(depart == DepartInscription.Godbout && destination == DepartInscription.Matane){
+            if(jour == JourInscription.LUNDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.MARDI) horairesDisponibles.add("17:00");
+            else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("17:00");
+            else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.SAMEDI) horairesDisponibles.add("11:00");
+        }
+        else if(depart == DepartInscription.Matane && destination == DepartInscription.Baie_Comeau){
+            if(jour == JourInscription.LUNDI) horairesDisponibles.add("14:00");
+            else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("08:00");
+            else if(jour == JourInscription.JEUDI) horairesDisponibles.add("08:00");
+            else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("14:00");
+            else if(jour == JourInscription.DIMANCHE) horairesDisponibles.add("15:00");
+        }
+        else if(depart == DepartInscription.Baie_Comeau && destination == DepartInscription.Matane){
+            if(jour == JourInscription.LUNDI) horairesDisponibles.add("17:00");
+            else if(jour == JourInscription.MERCREDI) horairesDisponibles.add("11:00");
+            else if(jour == JourInscription.JEUDI) horairesDisponibles.add("17:00");
+            else if(jour == JourInscription.VENDREDI) horairesDisponibles.add("17:00");
             else if(jour == JourInscription.DIMANCHE) horairesDisponibles.add("18:00");
         }
         return horairesDisponibles;
