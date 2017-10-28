@@ -255,4 +255,10 @@ public class TestVerificationHoraire {
         assertEquals("17:00", VerificationHoraire.recupererHoraire(31, 12, 2017, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
         assertEquals("17:00", VerificationHoraire.recupererHoraire(1, 2, 2018, DepartInscription.Baie_Comeau, DepartInscription.Matane).get(0));
     }
+
+    @Test
+    public void testAucuneTraversee(){
+        assertTrue(VerificationHoraire.recupererHoraire(25, 12, 2017, DepartInscription.Baie_Comeau, DepartInscription.Matane).isEmpty());
+        assertTrue(VerificationHoraire.recupererHoraire(1, 1, 2018, DepartInscription.Matane, DepartInscription.Godbout).isEmpty());
+    }
 }
