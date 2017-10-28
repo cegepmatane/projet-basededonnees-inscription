@@ -128,6 +128,10 @@ public class VerificationHoraire {
         return new ArrayList<>(); // On renvoie une liste vide puisque aucune date n'a été trouvée
     }
 
+    public static boolean horaireDisponible(int jour, int mois, int annee, DepartInscription depart, DepartInscription destination){
+        return !recupererHoraire(jour, mois, annee, depart, destination).isEmpty();
+    }
+
     //FETES
     private static List<String> recupererHorairesFetes(DepartInscription depart, DepartInscription destination){
         List<String> horairesDisponibles = new ArrayList<>();
