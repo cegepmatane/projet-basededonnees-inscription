@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class VerificationHoraire {
@@ -126,6 +127,20 @@ public class VerificationHoraire {
         }
 
         return new ArrayList<>(); // On renvoie une liste vide puisque aucune date n'a été trouvée
+    }
+
+    public static List<HashMap<String, String>> recupererHoraireEnHashMap(int jour, int mois, int annee, DepartInscription depart, DepartInscription destination, String cleHashMap){
+        List<HashMap<String, String>> listeHoraireEnHashMap = new ArrayList<>();
+
+        List<String> listeHoraireDisponible = recupererHoraire(jour, mois, annee, depart, destination);
+
+        for(String horaire : listeHoraireDisponible){
+            HashMap<String, String> horaireEnHashMap = new HashMap<>();
+            horaireEnHashMap.put(cleHashMap, horaire);
+            listeHoraireEnHashMap.add(horaireEnHashMap);
+        }
+
+        return listeHoraireEnHashMap;
     }
 
     public static boolean horaireDisponible(int jour, int mois, int annee, DepartInscription depart, DepartInscription destination){
