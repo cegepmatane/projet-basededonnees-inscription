@@ -1,5 +1,7 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele;
 
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TrancheAge;
+
 /**
  * Created by lucas on 16/10/2017.
  */
@@ -7,7 +9,7 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele;
 public class Personne {
 
     private int id;
-    private int age;
+    private TrancheAge age;
     private boolean accompagnateur;
 
     private static Personne instance;
@@ -20,7 +22,7 @@ public class Personne {
     public Personne() {
     }
 
-    public Personne(int id, int age, boolean accompagnateur) {
+    public Personne(int id, TrancheAge age, boolean accompagnateur) {
         this.id = id;
         this.age = age;
         this.accompagnateur = accompagnateur;
@@ -34,11 +36,11 @@ public class Personne {
         this.id = id;
     }
 
-    public int getAge() {
+    public TrancheAge getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(TrancheAge age) {
         this.age = age;
     }
 
