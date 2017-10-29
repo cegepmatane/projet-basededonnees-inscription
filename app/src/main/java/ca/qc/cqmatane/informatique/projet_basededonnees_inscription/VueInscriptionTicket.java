@@ -7,6 +7,7 @@ import android.widget.TextView;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.GestionXML;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TrancheAge;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
@@ -65,24 +66,24 @@ public class VueInscriptionTicket extends AppCompatActivity {
     private void calculerPrixParPersonne() {
         for(Personne personneCourante : inscription.getListePersonnes()) {
             if (inscription.getType() == TypeInscription.Simple) {
-                if(personneCourante.getAge() >= 0 && personneCourante.getAge() <= 4)
+                if(personneCourante.getAge() == TrancheAge.DE0a4 || personneCourante.isAccompagnateur() == true)
                     prixTotalFinal += 0;
-                else if(personneCourante.getAge() >= 5 && personneCourante.getAge() <= 15)
+                else if(personneCourante.getAge() == TrancheAge.DE5a15)
                     prixTotalFinal += 12.20;
-                else if(personneCourante.getAge() >= 16 && personneCourante.getAge() <= 64)
+                else if(personneCourante.getAge() == TrancheAge.DE16a64)
                     prixTotalFinal += 19.85;
-                else if(personneCourante.getAge() >= 65)
+                else if(personneCourante.getAge() == TrancheAge.DE65aPLUS)
                     prixTotalFinal += 16.80;
             }
 
             if (inscription.getType() == TypeInscription.Retour) {
-                if(personneCourante.getAge() >= 0 && personneCourante.getAge() <= 4)
+                if(personneCourante.getAge() == TrancheAge.DE0a4 || personneCourante.isAccompagnateur() == true)
                     prixTotalFinal += 0;
-                else if(personneCourante.getAge() >= 5 && personneCourante.getAge() <= 15)
+                else if(personneCourante.getAge() == TrancheAge.DE5a15)
                     prixTotalFinal += 20;
-                else if(personneCourante.getAge() >= 16 && personneCourante.getAge() <= 64)
+                else if(personneCourante.getAge() == TrancheAge.DE16a64)
                     prixTotalFinal += 32;
-                else if(personneCourante.getAge() >= 65)
+                else if(personneCourante.getAge() == TrancheAge.DE65aPLUS)
                     prixTotalFinal += 27;
             }
         }
