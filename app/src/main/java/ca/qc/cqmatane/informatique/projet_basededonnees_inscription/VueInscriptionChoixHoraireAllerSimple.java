@@ -1,7 +1,6 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 
 import android.graphics.Color;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +9,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.DepartInscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.VerificationHoraire;
@@ -23,14 +16,20 @@ import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.Verif
 public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
 
     protected ListView listeHorairesAllerSimple;
+    protected Button actionValiderChoixHoraire;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_choix_horaire_aller_simple);
 
-        //On recupère la liste des horaires
+        //On recupère les éléments de la vue
         listeHorairesAllerSimple = (ListView) findViewById(R.id.liste_vue_choix_horaire_aller_simple);
+        actionValiderChoixHoraire = (Button) findViewById(R.id.action_valider_choix_horaire_aller_simple);
+
+        //On vérifie la disponibilité du bouton
+        verifierBoutonValiderDisponible();
+
 
         //Recuperation de la date de l'aller ainsi que du depart et de la destination
         Inscription inscriptionEnCours = Inscription.getInstance();
@@ -62,6 +61,7 @@ public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
                 destination = DepartInscription.Baie_Comeau;
                 break;
         }
+
 
         //Permet de savoir le nom de la cle a recuperer dans le HashMap
         String cleHashMap = "heure";
@@ -101,6 +101,19 @@ public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
         String horaireSelectionne = boutonHoraireChoisi.getText().toString();
         //On l'ajoute a l'inscription
         Inscription.getInstance().setHeureAller(horaireSelectionne);
+
+        //On active le bouton valider
+        verifierBoutonValiderDisponible();
+    }
+
+    /**
+     * Regarde si on peut valider l'inscription en regardant si l'horaire dans l'inscription est choisi ou non
+     */
+    private void verifierBoutonValiderDisponible(){
+        boolean actionValiderDisponible =
+                Inscription.getInstance().getHeureAller() != null
+                && !Inscription.getInstance().getHeureAller().equals("");
+        actionValiderChoixHoraire.setEnabled(actionValiderDisponible);
     }
 
 }
