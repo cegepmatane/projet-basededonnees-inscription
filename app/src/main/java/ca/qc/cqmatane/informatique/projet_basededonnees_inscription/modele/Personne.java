@@ -22,8 +22,7 @@ public class Personne {
     public Personne() {
     }
 
-    public Personne(int id, TrancheAge age, boolean accompagnateur) {
-        this.id = id;
+    public Personne(TrancheAge age, boolean accompagnateur) {
         this.age = age;
         this.accompagnateur = accompagnateur;
     }

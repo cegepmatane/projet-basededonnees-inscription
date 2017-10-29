@@ -70,8 +70,8 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         inscription.setType(TypeInscription.Simple);
 
         ArrayList<Personne> personnes = new ArrayList<>();
-        personnes.add(new Personne(51, TrancheAge.DE0a4, false));
-        personnes.add(new Personne(52, TrancheAge.DE16a64, true));
+        personnes.add(new Personne(TrancheAge.DE0a4, false));
+        personnes.add(new Personne(TrancheAge.DE16a64, true));
         inscription.setListePersonnes(personnes);
 
         ArrayList<Vehicule> vehicules = new ArrayList<>();

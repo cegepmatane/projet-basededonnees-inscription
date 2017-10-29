@@ -9,7 +9,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TrancheAge;
 
 public class VueInscriptionQuestionDetailles extends AppCompatActivity {
 
@@ -21,6 +23,7 @@ public class VueInscriptionQuestionDetailles extends AppCompatActivity {
     private Button boutonValider;
     private int nbPassagers;
     private int nbVehicules;
+    private ArrayList<Personne> listePassagers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +59,34 @@ public class VueInscriptionQuestionDetailles extends AppCompatActivity {
                         } else {
                             Toast.makeText(VueInscriptionQuestionDetailles.this, "Il manque " + (nbPassagers-personneSaisiTotal) + " passagers !", Toast.LENGTH_SHORT).show();
                         }
+
+                    } else {
+                        listePassagers = new ArrayList<Personne>();
+                        for (int i = 0; i < nbPersonneSaisi1; i++) {
+                            listePassagers.add(new Personne(TrancheAge.DE0a4,false));
+                        }
+
+                        for (int i = 0; i < nbPersonneSaisi2; i++) {
+                            listePassagers.add(new Personne(TrancheAge.DE5a15,false));
+                        }
+
+                        for (int i = 0; i < nbPersonneSaisi3; i++) {
+                            listePassagers.add(new Personne(TrancheAge.DE16a64,false));
+                        }
+
+                        for (int i = 0; i < nbPersonneSaisi4; i++) {
+                            listePassagers.add(new Personne(TrancheAge.DE65aPLUS,false));
+                        }
+
+                        for (int i = 0; i < nbPersonneSaisi5; i++) {
+                            listePassagers.add(new Personne(null,true));
+                        }
                     }
+                    Inscription.getInstance().setListePersonnes(listePassagers);
+
                 } catch (NumberFormatException e){
                     Toast.makeText(VueInscriptionQuestionDetailles.this, "Veuillez saisir des chiffres uniquement",Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 
