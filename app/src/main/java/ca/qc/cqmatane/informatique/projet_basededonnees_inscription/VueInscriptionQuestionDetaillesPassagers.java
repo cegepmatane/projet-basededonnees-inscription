@@ -31,7 +31,7 @@ public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vue_inscription_question_detailles);
+        setContentView(R.layout.vue_inscription_question_detailles_passagers);
 
         Bundle donnees = this.getIntent().getExtras();
         nbPassagers = (int) donnees.get("nb_passagers");
