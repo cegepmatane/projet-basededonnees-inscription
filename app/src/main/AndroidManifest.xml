@@ -25,6 +25,7 @@
         <activity android:name=".VueInscriptionRecapitulatifDesInformations" />
         <activity android:name=".VueInscriptionTicket" />
         <activity android:name=".VueInscriptionQuestionDetaillesPassagers" />
+        <activity android:name=".VueInscriptionQuestionsDetaillesVehicules"></activity>
     </application>
 
 </manifest>

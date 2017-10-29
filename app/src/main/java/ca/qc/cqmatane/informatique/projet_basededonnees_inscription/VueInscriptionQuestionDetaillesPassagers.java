@@ -12,7 +12,9 @@ import java.util.ArrayList;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TrancheAge;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 
 public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity {
 
@@ -82,8 +84,25 @@ public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity 
                         for (int i = 0; i < nbPersonneSaisi5; i++) {
                             listePassagers.add(new Personne(null,true));
                         }
+                        Inscription.getInstance().setListePersonnes(listePassagers);
+                        if (nbVehicules > 0){
+                            Intent intentNaviguerQuestionsVehicules = new Intent(VueInscriptionQuestionDetaillesPassagers.this, VueInscriptionQuestionsDetaillesVehicules.class);
+                            intentNaviguerQuestionsVehicules.putExtra("nb_vehicules",nbVehicules);
+                            startActivity(intentNaviguerQuestionsVehicules);
+
+                        } else if (Inscription.getInstance().getType() == TypeInscription.Simple){
+                            Inscription.getInstance().setListeVehicules(new ArrayList<Vehicule>());
+                            Intent intentNaviguerChoixDateAllerSimple = new Intent(VueInscriptionQuestionDetaillesPassagers.this, VueInscriptionDateSimple.class);
+                            startActivity(intentNaviguerChoixDateAllerSimple);
+
+                        } else if (Inscription.getInstance().getType() == TypeInscription.Retour){
+                            Inscription.getInstance().setListeVehicules(new ArrayList<Vehicule>());
+                            Intent intentNaviguerChoixDateAllerRetour = new Intent(VueInscriptionQuestionDetaillesPassagers.this, VueInscriptionDateAllerRetour.class);
+                            startActivity(intentNaviguerChoixDateAllerRetour);
+                        }
                     }
-                    Inscription.getInstance().setListePersonnes(listePassagers);
+
+
 
                 } catch (NumberFormatException e){
                     Toast.makeText(VueInscriptionQuestionDetaillesPassagers.this, "Veuillez saisir des chiffres uniquement",Toast.LENGTH_SHORT).show();
