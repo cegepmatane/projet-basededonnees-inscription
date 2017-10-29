@@ -1,5 +1,6 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscr
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TrancheAge;
 
-public class VueInscriptionQuestionDetailles extends AppCompatActivity {
+public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity {
 
     private EditText champAge1;
     private EditText champAge2;
@@ -55,9 +56,9 @@ public class VueInscriptionQuestionDetailles extends AppCompatActivity {
 
                     if (personneSaisiTotal != nbPassagers){
                         if(personneSaisiTotal > nbPassagers){
-                            Toast.makeText(VueInscriptionQuestionDetailles.this, "Il y a " + (personneSaisiTotal-nbPassagers) + " passagers en trop !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(VueInscriptionQuestionDetaillesPassagers.this, "Il y a " + (personneSaisiTotal-nbPassagers) + " passagers en trop !", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(VueInscriptionQuestionDetailles.this, "Il manque " + (nbPassagers-personneSaisiTotal) + " passagers !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(VueInscriptionQuestionDetaillesPassagers.this, "Il manque " + (nbPassagers-personneSaisiTotal) + " passagers !", Toast.LENGTH_SHORT).show();
                         }
 
                     } else {
@@ -85,7 +86,7 @@ public class VueInscriptionQuestionDetailles extends AppCompatActivity {
                     Inscription.getInstance().setListePersonnes(listePassagers);
 
                 } catch (NumberFormatException e){
-                    Toast.makeText(VueInscriptionQuestionDetailles.this, "Veuillez saisir des chiffres uniquement",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VueInscriptionQuestionDetaillesPassagers.this, "Veuillez saisir des chiffres uniquement",Toast.LENGTH_SHORT).show();
                 }
             }
         });

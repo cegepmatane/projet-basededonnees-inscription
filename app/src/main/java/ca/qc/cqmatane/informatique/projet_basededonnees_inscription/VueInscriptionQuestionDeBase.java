@@ -73,7 +73,7 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
                 else inscription.setType(TypeInscription.Retour);
                 inscription.setVilleDepart(spinnerDepart.getSelectedItem().toString());
                 inscription.setVilleArrivee(spinnerArrivee.getSelectedItem().toString());
-                Intent intentNavigueQuestionDetaillees = new Intent(VueInscriptionQuestionDeBase.this, VueInscriptionQuestionDetailles.class);
+                Intent intentNavigueQuestionDetaillees = new Intent(VueInscriptionQuestionDeBase.this, VueInscriptionQuestionDetaillesPassagers.class);
                 intentNavigueQuestionDetaillees.putExtra("nb_passagers",Integer.parseInt(champNbPassagers.getText().toString()));
                 intentNavigueQuestionDetaillees.putExtra("nb_vehicules",Integer.parseInt(champNbVehicules.getText().toString()));
                 startActivity(intentNavigueQuestionDetaillees);
