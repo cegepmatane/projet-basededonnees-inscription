@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,14 +29,52 @@ public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vue_inscription_choix_horaire_aller_simple);
 
+        //On recupère la liste des horaires
         listeHorairesAllerSimple = (ListView) findViewById(R.id.liste_vue_choix_horaire_aller_simple);
+
+        //Recuperation de la date de l'aller ainsi que du depart et de la destination
+        Inscription inscriptionEnCours = Inscription.getInstance();
+        //On récupère la date de l'inscription pour l'aller
+        String[] dateInscription = inscriptionEnCours.getDateAller().split("/");
+        //On récupère le depart de l'aller
+        DepartInscription depart = DepartInscription.Matane;
+        switch(inscriptionEnCours.getVilleDepart()){
+            case "Matane":
+                depart = DepartInscription.Matane;
+                break;
+            case "Godbout":
+                depart = DepartInscription.Godbout;
+                break;
+            case "Baie-Comeau":
+                depart = DepartInscription.Baie_Comeau;
+                break;
+        }
+        //On récupère la destination de l'aller
+        DepartInscription destination = DepartInscription.Matane;
+        switch(inscriptionEnCours.getVilleArrivee()){
+            case "Matane":
+                destination = DepartInscription.Matane;
+                break;
+            case "Godbout":
+                destination = DepartInscription.Godbout;
+                break;
+            case "Baie-Comeau":
+                destination = DepartInscription.Baie_Comeau;
+                break;
+        }
 
         //Permet de savoir le nom de la cle a recuperer dans le HashMap
         String cleHashMap = "heure";
 
         listeHorairesAllerSimple.setAdapter(new SimpleAdapter(
                 this,
-                VerificationHoraire.recupererHoraireEnHashMap(19, 8, 2017, DepartInscription.Matane, DepartInscription.Baie_Comeau, cleHashMap),
+                VerificationHoraire.recupererHoraireEnHashMap(
+                        Integer.parseInt(dateInscription[0]),
+                        Integer.parseInt(dateInscription[1]),
+                        Integer.parseInt(dateInscription[2]),
+                        depart,
+                        destination,
+                        cleHashMap),
                 R.layout.element_liste_choix_horaire,
                 new String[] { cleHashMap },
                 new int[] { R.id.action_choix_horaire }
