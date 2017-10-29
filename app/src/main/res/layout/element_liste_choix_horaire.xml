@@ -15,6 +15,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="25dp"
         android:text="00:00"
+        android:background="@android:drawable/btn_default"
+        android:onClick="actionChoixHoraire"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
