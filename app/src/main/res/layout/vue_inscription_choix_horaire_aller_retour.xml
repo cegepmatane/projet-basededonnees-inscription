@@ -24,18 +24,20 @@
         android:layout_marginEnd="8dp" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/action_valider_choix_horaire_aller_retour"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texte_vue_choix_horaire_aller_retour"
-        tools:layout_editor_absoluteY="7dp">
+        app:layout_constraintTop_toBottomOf="@+id/texte_vue_choix_horaire_aller_retour">
 
         <LinearLayout
             android:id="@+id/layout_lineaire_choix_aller"
@@ -84,4 +86,16 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/action_valider_choix_horaire_aller_retour"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 </android.support.constraint.ConstraintLayout>
