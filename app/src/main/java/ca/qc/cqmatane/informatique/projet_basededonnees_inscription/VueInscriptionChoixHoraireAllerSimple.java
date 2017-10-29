@@ -1,5 +1,6 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -114,6 +115,11 @@ public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
                 Inscription.getInstance().getHeureAller() != null
                 && !Inscription.getInstance().getHeureAller().equals("");
         actionValiderChoixHoraire.setEnabled(actionValiderDisponible);
+    }
+
+    public void actionValiderChoixHoraire(View v){
+        Intent intentNaviguerRecapitulatif = new Intent(VueInscriptionChoixHoraireAllerSimple.this, VueInscriptionRecapitulatifDesInformations.class);
+        startActivity(intentNaviguerRecapitulatif);
     }
 
 }
