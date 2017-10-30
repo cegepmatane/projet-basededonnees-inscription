@@ -57,9 +57,10 @@
                 android:layout_height="10dp" />
 
             <ListView
-                android:id="@+id/liste_choix_horaire_trajet_aller"
+                android:id="@+id/liste_vue_choix_horaire_aller_retour_aller"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:divider="@null"/>
         </LinearLayout>
 
         <LinearLayout
@@ -80,9 +81,10 @@
                 android:layout_height="10dp" />
 
             <ListView
-                android:id="@+id/liste_choix_horaire_trajet_retour"
+                android:id="@+id/liste_vue_choix_horaire_aller_retour_retour"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:divider="@null" />
         </LinearLayout>
 
     </LinearLayout>
@@ -92,6 +94,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Valider"
+        android:onClick="actionValiderChoixHoraire"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"

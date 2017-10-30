@@ -31,7 +31,6 @@ public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
         //On vérifie la disponibilité du bouton
         verifierBoutonValiderDisponible();
 
-
         //Recuperation de la date de l'aller ainsi que du depart et de la destination
         Inscription inscriptionEnCours = Inscription.getInstance();
         //On récupère la date de l'inscription pour l'aller
