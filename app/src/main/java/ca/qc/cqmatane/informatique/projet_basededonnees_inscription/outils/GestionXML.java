@@ -1,7 +1,9 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Xml;
+import android.widget.Toast;
 
 import org.xmlpull.v1.XmlSerializer;
 
@@ -42,7 +44,7 @@ public class GestionXML {
             xmlSerializer.startTag(null, "inscription");
 
             xmlSerializer.startTag(null, "numeroInscription");
-            xmlSerializer.text(inscription.getNumeroInscription()+"");
+            xmlSerializer.text(inscription.getNumeroInscription() + "");
             xmlSerializer.endTag(null, "numeroInscription");
 
             xmlSerializer.startTag(null, "nom");
@@ -50,7 +52,7 @@ public class GestionXML {
             xmlSerializer.endTag(null, "nom");
 
             xmlSerializer.startTag(null, "type");
-            xmlSerializer.text(inscription.getType()+"");
+            xmlSerializer.text(inscription.getType() + "");
             xmlSerializer.endTag(null, "type");
 
             xmlSerializer.startTag(null, "dateAller");
@@ -62,11 +64,19 @@ public class GestionXML {
             xmlSerializer.endTag(null, "heureAller");
 
             xmlSerializer.startTag(null, "dateRetour");
-            xmlSerializer.text(inscription.getDateRetour());
+            if(inscription.getDateRetour() == null){
+                xmlSerializer.text("NULL");
+            }else{
+                xmlSerializer.text(inscription.getDateRetour());
+            }
             xmlSerializer.endTag(null, "dateRetour");
 
             xmlSerializer.startTag(null, "heureRetour");
-            xmlSerializer.text(inscription.getHeureRetour());
+            if(inscription.getHeureRetour() == null){
+                xmlSerializer.text("NULL");
+            }else{
+                xmlSerializer.text(inscription.getHeureRetour());
+            }
             xmlSerializer.endTag(null, "heureRetour");
 
             xmlSerializer.startTag(null, "depart");
@@ -78,37 +88,37 @@ public class GestionXML {
             xmlSerializer.endTag(null, "destination");
 
             xmlSerializer.startTag(null, "type");
-            xmlSerializer.text(inscription.getType()+"");
+            xmlSerializer.text(inscription.getType() + "");
             xmlSerializer.endTag(null, "type");
 
             xmlSerializer.startTag(null, "prix");
-            xmlSerializer.text(inscription.getPrix()+"");
+            xmlSerializer.text(inscription.getPrix() + "");
             xmlSerializer.endTag(null, "prix");
 
             xmlSerializer.startTag(null, "personnes");
-            for(Personne personne : inscription.getListePersonnes()){
+            for (Personne personne : inscription.getListePersonnes()) {
                 xmlSerializer.startTag(null, "personne");
                 xmlSerializer.startTag(null, "age");
-                xmlSerializer.text(personne.getAge()+"");
+                xmlSerializer.text(personne.getAge().toString());
                 xmlSerializer.endTag(null, "age");
                 xmlSerializer.startTag(null, "accompagnateur");
-                xmlSerializer.text(personne.isAccompagnateur()+"");
+                xmlSerializer.text(personne.isAccompagnateur() + "");
                 xmlSerializer.endTag(null, "accompagnateur");
                 xmlSerializer.endTag(null, "personne");
             }
             xmlSerializer.endTag(null, "personnes");
 
             xmlSerializer.startTag(null, "vehicules");
-            for(Vehicule vehicule : inscription.getListeVehicules()){
+            for (Vehicule vehicule : inscription.getListeVehicules()) {
                 xmlSerializer.startTag(null, "vehicule");
                 xmlSerializer.startTag(null, "type");
-                xmlSerializer.text(vehicule.getType()+"");
+                xmlSerializer.text(vehicule.getType() + "");
                 xmlSerializer.endTag(null, "type");
                 xmlSerializer.startTag(null, "largeur");
-                xmlSerializer.text(vehicule.getLargeur()+"");
+                xmlSerializer.text(vehicule.getLargeur() + "");
                 xmlSerializer.endTag(null, "largeur");
                 xmlSerializer.startTag(null, "longeur");
-                xmlSerializer.text(vehicule.getLongueur()+"");
+                xmlSerializer.text(vehicule.getLongueur() + "");
                 xmlSerializer.endTag(null, "longeur");
                 xmlSerializer.endTag(null, "vehicule");
             }
@@ -124,7 +134,7 @@ public class GestionXML {
         return "";
     }
 
-    public void ecrire(String numeroInscription){
+    public void ecrire(String numeroInscription) {
         FileOutputStream fluxSortieFichier = null;
         try {
             fluxSortieFichier = contexte.openFileOutput("inscription.xml", Context.MODE_PRIVATE);
@@ -160,12 +170,13 @@ public class GestionXML {
             lectureEntree.close();
             ficherEntree.close();
         } catch (Exception e) {
+            Toast.makeText(contexte, "Vous n'avez pas d'inscription...", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
         return numeroInscription;
     }
 
-    public String lire(){
+    public String lire() {
         FileInputStream ficherEntree = null;
         String donnee = "";
         try {
@@ -182,7 +193,11 @@ public class GestionXML {
         return donnee;
     }
 
-    public void supprimerXML(){
+    public void supprimerXML() {
         contexte.deleteFile("preference.xml");
+    }
+
+    public static String getInfoXML(Context contexte, String informationComplete, String informationVoulu) {
+        return (informationComplete.split("<" + informationVoulu + ">")[1]).split("</" + informationVoulu + ">")[0];
     }
 }
