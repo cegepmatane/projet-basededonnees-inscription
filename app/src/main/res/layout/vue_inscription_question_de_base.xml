@@ -94,7 +94,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Nombre de passagers"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_nom" />
@@ -108,7 +108,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Nombre de véhicules"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
