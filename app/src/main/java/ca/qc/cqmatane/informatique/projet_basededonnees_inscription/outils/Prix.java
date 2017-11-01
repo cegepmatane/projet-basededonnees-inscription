@@ -21,6 +21,7 @@ public class Prix {
         prixTotalFinal += calculerPrixParVehicule(prixTotalFinal);
         float rabais = calculerLeRabais() * 100;
         prixTotalFinal *= 1 + rabais;
+        inscription.setPrix((double)prixTotalFinal);
     }
 
     /**
