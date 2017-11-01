@@ -14,7 +14,7 @@ public class VueInscriptionPrincipale extends AppCompatActivity {
     }
 
     public void actionAfficherInscriptions(View vue){
-
+        startActivity(new Intent(VueInscriptionPrincipale.this, VueInscriptionListeInscription.class));
     }
 
     public void actionFaireInscription(View vue){
