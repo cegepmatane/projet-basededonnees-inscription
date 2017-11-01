@@ -105,6 +105,14 @@ public class VueInscriptionQuestionsDetaillesVehicules extends AppCompatActivity
                         }
 
                         Inscription.getInstance().setListeVehicules(listeVehicules);
+
+                        if(Inscription.getInstance().getType() == TypeInscription.Simple){
+                            Intent intentNaviguerVueInscriptionDateSimple = new Intent(VueInscriptionQuestionsDetaillesVehicules.this, VueInscriptionDateSimple.class);
+                            startActivity(intentNaviguerVueInscriptionDateSimple);
+                        } else {
+                            Intent intentNaviguerVueInscriptionAllerRetour = new Intent(VueInscriptionQuestionsDetaillesVehicules.this, VueInscriptionDateAllerRetour.class);
+                            startActivity(intentNaviguerVueInscriptionAllerRetour);
+                        }
                     }
 
 
