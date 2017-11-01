@@ -14,6 +14,7 @@ import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Perso
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.ConnexionHTTP;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.GestionXML;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.Prix;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TrancheAge;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
@@ -65,31 +66,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         personne = Personne.getInstance();
         vehicule = Vehicule.getInstance();
 
-        /*
-        inscription.setNumeroInscription(0);
-        inscription.setNom("Nicolas");
-        inscription.setType(TypeInscription.Simple);
-
-        ArrayList<Personne> personnes = new ArrayList<>();
-        personnes.add(new Personne(TrancheAge.DE0a4, false));
-        personnes.add(new Personne(TrancheAge.DE16a64, true));
-        inscription.setListePersonnes(personnes);
-
-        ArrayList<Vehicule> vehicules = new ArrayList<>();
-        vehicules.add(new Vehicule(51, TypeVehicule.Camion, 10, 15));
-        vehicules.add(new Vehicule(51, TypeVehicule.Vehicule, 5, 5));
-        inscription.setListeVehicules(vehicules);
-
-        inscription.setDateAller("2017-05-21");
-        inscription.setHeureAller("15:00");
-        inscription.setDateRetour("2017-06-21");
-        inscription.setHeureRetour("17:00");
-
-        inscription.setPrix(90051);
-        inscription.setVilleArrivee("Matane");
-        inscription.setVilleDepart("Godbout");
-        */
-
+        Prix.calculerPrixBillet();
 
         ajouterEcouteur(); // Appelle la méthode qui change la page dynamiquement en fonction de l'utilisateur
     }
@@ -107,13 +84,13 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         nombrePassager.setText("Nombre de passagers : "+inscription.getListePersonnes().size());
         nombreVehicule.setText("Nombre de véhicules : "+inscription.getListeVehicules().size());
         dateAller.setText("Date de départ : "+inscription.getDateAller());
-        if (dateRetour != null) { // Vérifie si l'utilisateur a pris un aller-retour
+        if (inscription.getDateRetour() != null) { // Vérifie si l'utilisateur a pris un aller-retour
             dateRetour.setText("Date de retour : " + inscription.getDateRetour());
         } else {
             dateRetour.setText("Aucune date de retour");
         }
         heureAller.setText("Heure de l'aller : "+inscription.getHeureAller());
-        if (heureRetour != null) { // Vérifie si l'utilisateur a pris un aller-retour
+        if (inscription.getHeureRetour() != null) { // Vérifie si l'utilisateur a pris un aller-retour
             heureRetour.setText("Heure du retour : " + inscription.getHeureRetour());
         } else {
             heureRetour.setText("Aucune heure de retour");

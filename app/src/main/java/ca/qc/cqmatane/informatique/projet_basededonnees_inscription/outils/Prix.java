@@ -14,7 +14,7 @@ public class Prix {
      * Calcule le prix total du billet
      * @return le prix du billet
      */
-    private static void calculerPrixBillet() {
+    public static void calculerPrixBillet() {
         float prixTotalFinal = 0f;
         Inscription inscription = Inscription.getInstance();
         prixTotalFinal += calculerPrixParPersonne(prixTotalFinal);
