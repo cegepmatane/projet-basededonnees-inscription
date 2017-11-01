@@ -1,5 +1,4 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +12,8 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.DepartInscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.VerificationHoraire;
 
 public class VueInscriptionDateAllerRetour extends AppCompatActivity {
     TextView calendrier_inscription_date_aller_retour_depart;
@@ -86,7 +87,12 @@ public class VueInscriptionDateAllerRetour extends AppCompatActivity {
                 }
                 else if (isDateValide().equals("dateInferieur")) {
                     Toast.makeText(getApplicationContext(), "Veuillez chosir une date de retour après le " + jourDepart + "/" + moisDepart + "/" + anneeDepart, Toast.LENGTH_SHORT).show();
-                }else  { //Les informations ont passées toutes le étapes de validation
+                }
+                else if (!isHoraireValide()) {
+                    Toast.makeText(getApplicationContext(), "La sélection comporte des horaires indisponible", Toast.LENGTH_SHORT).show();
+
+                }
+                else  { //Les informations ont passées toutes le étapes de validation
                     miseAJourInscription();
                     startActivity(new Intent(VueInscriptionDateAllerRetour.this, VueInscriptionChoixHoraireAllerRetour.class));
                 }
@@ -110,6 +116,32 @@ public class VueInscriptionDateAllerRetour extends AppCompatActivity {
             return "dateInferieur";
         }
         return "ok";
+    }
+
+    /**
+     * Vérifie si toutes les horaires sont bonnes pour une date aller-retour sélectionnée
+     * @return un booléen, false si les horaires ne sont pas disponibles, et true si tout est bon
+     */
+    private boolean isHoraireValide() {
+        DepartInscription villeDepart = null, villeArrivee = null;
+        Inscription inscription = Inscription.getInstance();
+        if (inscription.getVilleDepart().equals(DepartInscription.Baie_Comeau.toString()))
+            villeDepart = DepartInscription.Baie_Comeau;
+        else if (inscription.getVilleDepart().equals(DepartInscription.Godbout.toString()))
+            villeDepart = DepartInscription.Godbout;
+        else if (inscription.getVilleDepart().equals(DepartInscription.Matane.toString()))
+            villeDepart = DepartInscription.Matane;
+
+        if (inscription.getVilleArrivee().equals(DepartInscription.Baie_Comeau.toString()))
+            villeArrivee = DepartInscription.Baie_Comeau;
+        else if (inscription.getVilleArrivee().equals(DepartInscription.Godbout.toString()))
+            villeArrivee = DepartInscription.Godbout;
+        else if (inscription.getVilleArrivee().equals(DepartInscription.Matane.toString()))
+            villeArrivee = DepartInscription.Matane;
+        if(!VerificationHoraire.horaireDisponible(Integer.parseInt(jourDepart), Integer.parseInt(moisDepart), Integer.parseInt(anneeDepart), villeDepart, villeArrivee))
+            return false;
+        else
+            return true;
     }
 
     /**

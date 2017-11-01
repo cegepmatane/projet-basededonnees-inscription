@@ -144,6 +144,9 @@ public class VerificationHoraire {
     }
 
     public static boolean horaireDisponible(int jour, int mois, int annee, DepartInscription depart, DepartInscription destination){
+        System.out.println(jour + "/" +  mois  + "/" + annee);
+        System.out.println(depart);
+        System.out.println(destination);
         return !recupererHoraire(jour, mois, annee, depart, destination).isEmpty();
     }
 
