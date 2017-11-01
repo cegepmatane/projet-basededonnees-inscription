@@ -17,11 +17,15 @@ public class Prix {
     public static void calculerPrixBillet() {
         float prixTotalFinal = 0f;
         Inscription inscription = Inscription.getInstance();
-        prixTotalFinal += calculerPrixParPersonne(prixTotalFinal);
-        prixTotalFinal += calculerPrixParVehicule(prixTotalFinal);
+        System.out.println("Avant prix par personne : " + prixTotalFinal);
+        prixTotalFinal = calculerPrixParPersonne(prixTotalFinal);
+        System.out.println("Avant prix par véhicule : " + prixTotalFinal);
+        prixTotalFinal = calculerPrixParVehicule(prixTotalFinal);
+        System.out.println("Avant prix par rabais : " + prixTotalFinal);
         float rabais = calculerLeRabais() * 100;
         prixTotalFinal *= 1 + rabais;
-        inscription.setPrix((double)prixTotalFinal);
+        System.out.println("prix final : " +  prixTotalFinal);
+        inscription.setPrix(((int)(prixTotalFinal * 100))/100.0);
     }
 
     /**
@@ -74,9 +78,11 @@ public class Prix {
      * Calcule le prix de tout les véhicule et les ajoute au prix final total
      */
     private static float calculerPrixParVehicule(float prixTotalFinal) {
+        System.out.println("Au début de la fonction véhicule : " + prixTotalFinal);
         Inscription inscription = Inscription.getInstance();
         for(Vehicule vehiculeCourant : inscription.getListeVehicules()) {
             if(vehiculeCourant.getType() == TypeVehicule.Vehicule) {
+                System.out.println("je rentre les véhicules probleme");
                 if (vehiculeCourant.getLongueur() <= 6.4) {
                     prixTotalFinal += 80;
                 }
@@ -111,6 +117,7 @@ public class Prix {
                 }
             }
         }
+        System.out.println("Fin fonction véhicule : " + prixTotalFinal);
         return prixTotalFinal;
     }
 }
