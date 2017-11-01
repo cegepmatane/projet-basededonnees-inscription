@@ -65,6 +65,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         personne = Personne.getInstance();
         vehicule = Vehicule.getInstance();
 
+        /*
         inscription.setNumeroInscription(0);
         inscription.setNom("Nicolas");
         inscription.setType(TypeInscription.Simple);
@@ -87,6 +88,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         inscription.setPrix(90051);
         inscription.setVilleArrivee("Matane");
         inscription.setVilleDepart("Godbout");
+        */
 
 
         ajouterEcouteur(); // Appelle la méthode qui change la page dynamiquement en fonction de l'utilisateur
@@ -137,7 +139,7 @@ public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivit
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new ConnexionHTTP(VueInscriptionRecapitulatifDesInformations.this).execute();
+                new ConnexionHTTP(VueInscriptionRecapitulatifDesInformations.this, "CreerInscription.php").execute();
             }
         });
     }
