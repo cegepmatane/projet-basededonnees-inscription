@@ -29,6 +29,16 @@ public class Vehicule {
         this.longueur = longueur;
     }
 
+    public Vehicule(TypeVehicule type, double largeur, double longueur) {
+        this.type = type;
+        this.largeur = largeur;
+        this.longueur = longueur;
+    }
+
+    public Vehicule(TypeVehicule type) {
+        this.type = type;
+    }
+
     public int getId() {
         return id;
     }

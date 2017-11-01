@@ -4,6 +4,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ca.qc.cqmatane.informatique.projet_basededonnees_inscription.VueInscriptionQuestionsDetaillesVehicules">
+    tools:context="ca.qc.cqmatane.informatique.projet_basededonnees_inscription.VueInscriptionQuestionsDetaillesVehicules"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <TextView
+        android:id="@+id/text_questions_vehicules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Indiquez le nombre de véhicules et la longueur supplémentaire par catégories"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp" />
+
+    <EditText
+        android:id="@+id/nb_vehicules"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="Véhicules"
+        android:inputType="number"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/longueur_sup_vehicules"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="6,4m +"
+        android:inputType="number"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="10dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/nb_vehicules_tirant"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Véhicules tirant"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/nb_vehicules"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/longueur_sup_vehicules_tirant"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="9,4m +"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/longueur_sup_vehicules"
+        android:layout_marginRight="10dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/nb_camion_petit"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Camion largeur 2,6m -"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/nb_vehicules_tirant"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/longueur_camion_petit"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Longueur totale"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/longueur_sup_vehicules_tirant"
+        android:layout_marginRight="10dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/nb_camion_grand"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Camion largeur 2,6m +"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nb_camion_petit" />
+
+    <EditText
+        android:id="@+id/longueur_camion_grand"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Longueur totale"
+        android:inputType="number"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/longueur_camion_petit" />
+
+    <EditText
+        android:id="@+id/nb_motocyclette"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Motocyclette"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nb_camion_grand" />
+
+    <Button
+        android:id="@+id/bouton_valider_vehicules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Valider"
+        app:layout_constraintTop_toBottomOf="@+id/nb_motocyclette"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
