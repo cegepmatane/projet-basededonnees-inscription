@@ -36,8 +36,8 @@ public class VueInscriptionChoixHoraireAllerRetour extends AppCompatActivity {
         //Recuperation de la date de l'aller ainsi que du depart et de la destination
         Inscription inscriptionEnCours = Inscription.getInstance();
         //On récupère la date de l'inscription pour l'aller
-        String[] dateInscriptionAller = inscriptionEnCours.getDateAller().split("/");
-        String[] dateInscriptionRetour = inscriptionEnCours.getDateRetour().split("/");
+        String[] dateInscriptionAller = inscriptionEnCours.getDateAller().split("-");
+        String[] dateInscriptionRetour = inscriptionEnCours.getDateRetour().split("-");
         //On récupère le depart de l'aller
         DepartInscription depart = DepartInscription.Matane;
         switch(inscriptionEnCours.getVilleDepart()){
@@ -71,9 +71,9 @@ public class VueInscriptionChoixHoraireAllerRetour extends AppCompatActivity {
         listeHorairesAller.setAdapter(new SimpleAdapter(
                 this,
                 VerificationHoraire.recupererHoraireEnHashMap(
-                        Integer.parseInt(dateInscriptionAller[0]),
-                        Integer.parseInt(dateInscriptionAller[1]),
                         Integer.parseInt(dateInscriptionAller[2]),
+                        Integer.parseInt(dateInscriptionAller[1]),
+                        Integer.parseInt(dateInscriptionAller[0]),
                         depart,
                         destination,
                         cleHashMap),
@@ -85,9 +85,9 @@ public class VueInscriptionChoixHoraireAllerRetour extends AppCompatActivity {
         listeHorairesRetour.setAdapter(new SimpleAdapter(
                 this,
                 VerificationHoraire.recupererHoraireEnHashMap(
-                        Integer.parseInt(dateInscriptionRetour[0]),
-                        Integer.parseInt(dateInscriptionRetour[1]),
                         Integer.parseInt(dateInscriptionRetour[2]),
+                        Integer.parseInt(dateInscriptionRetour[1]),
+                        Integer.parseInt(dateInscriptionRetour[0]),
                         destination,
                         depart,
                         cleHashMap),

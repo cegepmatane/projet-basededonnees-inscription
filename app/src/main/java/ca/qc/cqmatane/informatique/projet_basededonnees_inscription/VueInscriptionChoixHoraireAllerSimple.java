@@ -34,7 +34,7 @@ public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
         //Recuperation de la date de l'aller ainsi que du depart et de la destination
         Inscription inscriptionEnCours = Inscription.getInstance();
         //On récupère la date de l'inscription pour l'aller
-        String[] dateInscription = inscriptionEnCours.getDateAller().split("/");
+        String[] dateInscription = inscriptionEnCours.getDateAller().split("-");
         //On récupère le depart de l'aller
         DepartInscription depart = DepartInscription.Matane;
         switch(inscriptionEnCours.getVilleDepart()){
@@ -69,9 +69,9 @@ public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
         listeHorairesAllerSimple.setAdapter(new SimpleAdapter(
                 this,
                 VerificationHoraire.recupererHoraireEnHashMap(
-                        Integer.parseInt(dateInscription[0]),
-                        Integer.parseInt(dateInscription[1]),
                         Integer.parseInt(dateInscription[2]),
+                        Integer.parseInt(dateInscription[1]),
+                        Integer.parseInt(dateInscription[0]),
                         depart,
                         destination,
                         cleHashMap),
