@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 23 Octobre 2017 à 18:21
+-- Généré le :  Mer 01 Novembre 2017 à 07:45
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -48,7 +48,7 @@ CREATE TABLE `inscription` (
 
 CREATE TABLE `personne` (
   `idPersonne` bigint(20) UNSIGNED NOT NULL,
-  `age` int(11) NOT NULL,
+  `age` enum('DE0a4','DE5a15','DE16a64','DE65aPLUS') NOT NULL,
   `accompagnateur` tinyint(1) NOT NULL,
   `numeroInscription` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
