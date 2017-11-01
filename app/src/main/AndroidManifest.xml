@@ -11,21 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VueInscriptionQuestionDeBase">
+        <activity android:name=".VueInscriptionQuestionDeBase"></activity>
+        <activity android:name=".VueInscriptionDateAllerRetour" />
+        <activity android:name=".VueInscriptionChoixHoraireAllerSimple" />
+        <activity android:name=".VueInscriptionChoixHoraireAllerRetour" />
+        <activity android:name=".VueInscriptionDateSimple" />
+        <activity android:name=".VueInscriptionRecapitulatifDesInformations">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VueInscriptionDateAllerRetour" />
-        <activity android:name=".VueInscriptionChoixHoraireAllerSimple" />
-        <activity android:name=".VueInscriptionChoixHoraireAllerRetour" />
-        <activity android:name=".VueInscriptionDateSimple" />
-        <activity android:name=".VueInscriptionRecapitulatifDesInformations" />
         <activity android:name=".VueInscriptionTicket" />
         <activity android:name=".VueInscriptionQuestionDetaillesPassagers" />
-        <activity android:name=".VueInscriptionQuestionsDetaillesVehicules"></activity>
+        <activity android:name=".VueInscriptionQuestionsDetaillesVehicules" />
+        <activity android:name=".VueInscriptionPrincipale">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
