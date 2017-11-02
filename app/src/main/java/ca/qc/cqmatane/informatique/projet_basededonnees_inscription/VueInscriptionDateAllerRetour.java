@@ -88,9 +88,11 @@ public class VueInscriptionDateAllerRetour extends AppCompatActivity {
                 else if (isDateValide().equals("dateInferieur")) {
                     Toast.makeText(getApplicationContext(), "Veuillez chosir une date de retour après le " + jourDepart + "/" + moisDepart + "/" + anneeDepart, Toast.LENGTH_SHORT).show();
                 }
-                else if (!isHoraireValide()) {
-                    Toast.makeText(getApplicationContext(), "La sélection comporte des horaires indisponible", Toast.LENGTH_SHORT).show();
-
+                else if (isHoraireValide().equals("departInvalide")) {
+                    Toast.makeText(getApplicationContext(), "La date de départ ne dispose pas d'horaire", Toast.LENGTH_SHORT).show();
+                }
+                else if (isHoraireValide().equals("retourInvalide")) {
+                    Toast.makeText(getApplicationContext(), "La date de retour ne dispose pas d'horaire", Toast.LENGTH_SHORT).show();
                 }
                 else  { //Les informations ont passées toutes le étapes de validation
                     miseAJourInscription();
@@ -122,7 +124,7 @@ public class VueInscriptionDateAllerRetour extends AppCompatActivity {
      * Vérifie si toutes les horaires sont bonnes pour une date aller-retour sélectionnée
      * @return un booléen, false si les horaires ne sont pas disponibles, et true si tout est bon
      */
-    private boolean isHoraireValide() {
+    private String isHoraireValide() {
         DepartInscription villeDepart = null, villeArrivee = null;
         Inscription inscription = Inscription.getInstance();
         if (inscription.getVilleDepart().equals(DepartInscription.Baie_Comeau.toString()))
@@ -139,9 +141,11 @@ public class VueInscriptionDateAllerRetour extends AppCompatActivity {
         else if (inscription.getVilleArrivee().equals(DepartInscription.Matane.toString()))
             villeArrivee = DepartInscription.Matane;
         if(!VerificationHoraire.horaireDisponible(Integer.parseInt(jourDepart), Integer.parseInt(moisDepart), Integer.parseInt(anneeDepart), villeDepart, villeArrivee))
-            return false;
+            return "departInvalide";
+        if(!VerificationHoraire.horaireDisponible(Integer.parseInt(jourRetour), Integer.parseInt(moisRetour), Integer.parseInt(anneeRetour), villeDepart, villeArrivee))
+            return "retourInvalide";
         else
-            return true;
+            return "ok";
     }
 
     /**
