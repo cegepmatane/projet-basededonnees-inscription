@@ -3,7 +3,6 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,8 +27,7 @@ public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity 
     private int nbPassagers;
     private int nbVehicules;
     private ArrayList<Personne> listePassagers;
-    
-    private final String TAG = "DEBUGME";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +114,6 @@ public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity 
 
     public void remplirChampDeZero() {
         if (champAge1.getText().toString().equals(""))
-            Log.d(TAG, "remplirChampDeZero: Je passe à zéro");
             champAge1.setText("0");
         if(champAge2.getText().toString().equals(""))
             champAge2.setText("0");
