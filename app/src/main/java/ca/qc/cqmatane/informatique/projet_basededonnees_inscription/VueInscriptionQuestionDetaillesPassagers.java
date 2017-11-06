@@ -1,8 +1,9 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,8 @@ public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity 
     private int nbPassagers;
     private int nbVehicules;
     private ArrayList<Personne> listePassagers;
+    
+    private final String TAG = "DEBUGME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +99,7 @@ public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity 
                             startActivity(intentNaviguerChoixDateAllerSimple);
 
                         } else if (Inscription.getInstance().getType() == TypeInscription.Retour){
-                            Inscription.getInstance().setListeVehicules(new ArrayList<Vehicule>());
+                           Inscription.getInstance().setListeVehicules(new ArrayList<Vehicule>());
                             Intent intentNaviguerChoixDateAllerRetour = new Intent(VueInscriptionQuestionDetaillesPassagers.this, VueInscriptionDateAllerRetour.class);
                             startActivity(intentNaviguerChoixDateAllerRetour);
                         }
@@ -105,13 +108,23 @@ public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity 
 
 
                 } catch (NumberFormatException e){
-                    Toast.makeText(VueInscriptionQuestionDetaillesPassagers.this, "Veuillez saisir des chiffres uniquement",Toast.LENGTH_SHORT).show();
+                    remplirChampDeZero();
                 }
             }
         });
+    }
 
-
-
-
+    public void remplirChampDeZero() {
+        if (champAge1.getText().toString().equals(""))
+            Log.d(TAG, "remplirChampDeZero: Je passe à zéro");
+            champAge1.setText("0");
+        if(champAge2.getText().toString().equals(""))
+            champAge2.setText("0");
+        if(champAge3.getText().toString().equals(""))
+            champAge3.setText("0");
+        if(champAge4.getText().toString().equals(""))
+            champAge4.setText("0");
+        if(champAccompagnateur.getText().toString().equals(""))
+            champAccompagnateur.setText("0");
     }
 }
