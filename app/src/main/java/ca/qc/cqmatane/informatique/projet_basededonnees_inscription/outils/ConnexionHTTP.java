@@ -103,6 +103,7 @@ public class ConnexionHTTP extends AsyncTask<Void, Void, String> {
             inscriptionHashMapAller.put("arrive", "Arrivé : " + GestionXML.getInfoXML(context, inscription,"destination"));
             inscriptionHashMapAller.put("date", "Date départ : " + GestionXML.getInfoXML(context, inscription,"dateAller"));
             inscriptionHashMapAller.put("heure", "Heure départ : " + GestionXML.getInfoXML(context, inscription,"heureAller").substring(0, 5));
+            inscriptionHashMapAller.put("validation", "Ticket validé : " + (GestionXML.getInfoXML(context, inscription,"dateValidation").equals("") ? "Non validé" : GestionXML.getInfoXML(context, inscription,"dateValidation")));
             inscriptions.add(inscriptionHashMapAller);
             if(!GestionXML.getInfoXML(context, inscription, "dateRetour").equals("")){
                 HashMap<String,String> inscriptionHashMapRetour = new HashMap<>();
@@ -111,6 +112,7 @@ public class ConnexionHTTP extends AsyncTask<Void, Void, String> {
                 inscriptionHashMapRetour.put("arrive", "Arrivé : " + GestionXML.getInfoXML(context, inscription,"depart"));
                 inscriptionHashMapRetour.put("date", "Date départ : " + GestionXML.getInfoXML(context, inscription,"dateRetour"));
                 inscriptionHashMapRetour.put("heure", "Heure départ : " + GestionXML.getInfoXML(context, inscription,"heureRetour").substring(0, 5));
+                inscriptionHashMapRetour.put("validation", "Ticket validé : " + (GestionXML.getInfoXML(context, inscription,"dateValidation").equals("") ? "Non validé" : GestionXML.getInfoXML(context, inscription,"dateValidation")));
                 inscriptions.add(inscriptionHashMapRetour);
             }
 
@@ -118,8 +120,8 @@ public class ConnexionHTTP extends AsyncTask<Void, Void, String> {
                     context,
                     inscriptions,
                     R.layout.liste_inscription_perso,
-                    new String[]{"numeroInscription", "depart", "arrive", "date", "heure"},
-                    new int[]{R.id.texte_numero_inscription, R.id.texte_ville_depart, R.id.texte_ville_arrive, R.id.texte_date_depart, R.id.texte_heure_depart}
+                    new String[]{"numeroInscription", "depart", "arrive", "date", "heure", "validation"},
+                    new int[]{R.id.texte_numero_inscription, R.id.texte_ville_depart, R.id.texte_ville_arrive, R.id.texte_date_depart, R.id.texte_heure_depart, R.id.texte_validation}
             ));
         }else{
             context.startActivity(new Intent(context, VueInscriptionTicket.class));
