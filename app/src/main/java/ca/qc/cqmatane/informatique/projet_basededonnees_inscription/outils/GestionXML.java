@@ -128,8 +128,8 @@ public class GestionXML {
             xmlSerializer.endDocument();
             xmlSerializer.flush();
             return writer.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         return "";
     }
@@ -152,8 +152,8 @@ public class GestionXML {
             String dataWrite = writer.toString();
             fluxSortieFichier.write(dataWrite.getBytes());
             fluxSortieFichier.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -169,9 +169,9 @@ public class GestionXML {
             numeroInscription = (donnee.split("<numeroInscription>")[1]).split("</numeroInscription>")[0];
             lectureEntree.close();
             ficherEntree.close();
-        } catch (Exception e) {
+        } catch (Exception exception) {
             Toast.makeText(contexte, "Vous n'avez pas d'inscription...", Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
+            exception.printStackTrace();
         }
         return numeroInscription;
     }
@@ -187,8 +187,8 @@ public class GestionXML {
             donnee = new String(entreeConstructeur);
             lectureEntree.close();
             ficherEntree.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
         return donnee;
     }

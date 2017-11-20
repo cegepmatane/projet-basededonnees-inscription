@@ -61,7 +61,7 @@ public class VueInscriptionQuestionDeBase extends AppCompatActivity {
         try {
             champNbPassagers.setText(inscription.getListePersonnes().size());
             champNbVehicules.setText(inscription.getListeVehicules().size());
-        } catch (Exception e){
+        } catch (Exception exception){
 
         }
 

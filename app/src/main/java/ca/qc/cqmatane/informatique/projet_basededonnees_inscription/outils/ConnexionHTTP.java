@@ -85,8 +85,8 @@ public class ConnexionHTTP extends AsyncTask<Void, Void, String> {
                     return buffer.toString();
             }
             return null;
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
             return null;
         }
     }
