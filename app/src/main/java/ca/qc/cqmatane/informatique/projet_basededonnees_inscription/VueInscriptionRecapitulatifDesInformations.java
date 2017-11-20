@@ -7,17 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.ConnexionHTTP;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.GestionXML;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.Prix;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TrancheAge;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.ConnexionHTTP;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.Prix;
 
 public class VueInscriptionRecapitulatifDesInformations extends AppCompatActivity {
 

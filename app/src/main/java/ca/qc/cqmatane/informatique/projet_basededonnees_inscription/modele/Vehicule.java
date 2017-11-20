@@ -1,6 +1,6 @@
 package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele;
 
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.TypeVehicule;
 
 /**
  * Created by lucas on 16/10/2017.

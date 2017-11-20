@@ -11,8 +11,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.DepartInscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.VerificationHoraire;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.DepartInscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.VerificationHoraire;
 
 public class VueInscriptionChoixHoraireAllerSimple extends AppCompatActivity {
 

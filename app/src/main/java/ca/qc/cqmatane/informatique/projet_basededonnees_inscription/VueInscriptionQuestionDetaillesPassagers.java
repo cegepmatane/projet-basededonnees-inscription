@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TrancheAge;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.TrancheAge;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.TypeInscription;
 
 public class VueInscriptionQuestionDetaillesPassagers extends AppCompatActivity {
 

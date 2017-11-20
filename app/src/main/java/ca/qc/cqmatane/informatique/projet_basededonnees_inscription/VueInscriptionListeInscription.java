@@ -3,14 +3,8 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.ConnexionHTTP;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.GestionXML;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.ConnexionHTTP;
 
 public class VueInscriptionListeInscription extends AppCompatActivity {
 

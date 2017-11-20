@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.GestionXML;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.GestionXML;
 
 
 public class VueInscriptionTicket extends AppCompatActivity {

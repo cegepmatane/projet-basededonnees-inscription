@@ -12,8 +12,8 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.DepartInscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.VerificationHoraire;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.DepartInscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.VerificationHoraire;
 
 public class VueInscriptionDateAllerRetour extends AppCompatActivity {
     TextView calendrier_inscription_date_aller_retour_depart;

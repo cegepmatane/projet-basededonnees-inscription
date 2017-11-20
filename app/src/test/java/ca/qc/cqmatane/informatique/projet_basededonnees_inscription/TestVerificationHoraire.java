@@ -2,8 +2,8 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 
 import org.junit.Test;
 
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.DepartInscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.VerificationHoraire;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.DepartInscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.VerificationHoraire;
 
 import static org.junit.Assert.*;
 

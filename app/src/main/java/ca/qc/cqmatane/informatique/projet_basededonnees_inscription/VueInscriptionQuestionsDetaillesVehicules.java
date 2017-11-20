@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Vehicule;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeVehicule;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.TypeInscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.TypeVehicule;
 
 public class VueInscriptionQuestionsDetaillesVehicules extends AppCompatActivity {
 

@@ -3,7 +3,6 @@ package ca.qc.cqmatane.informatique.projet_basededonnees_inscription;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
-import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils.TypeInscription;
+import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil.TypeInscription;
 
 public class VueInscriptionQuestionDeBase extends AppCompatActivity {
 
