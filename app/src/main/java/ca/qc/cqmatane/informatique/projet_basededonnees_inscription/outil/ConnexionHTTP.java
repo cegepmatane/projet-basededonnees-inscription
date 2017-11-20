@@ -1,4 +1,4 @@
-package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils;
+package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -16,7 +16,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.R;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.VueInscriptionTicket;

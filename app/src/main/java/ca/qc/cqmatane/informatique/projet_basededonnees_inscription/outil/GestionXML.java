@@ -1,6 +1,5 @@
-package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils;
+package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Xml;
 import android.widget.Toast;
@@ -12,7 +11,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
-import java.util.logging.XMLFormatter;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;

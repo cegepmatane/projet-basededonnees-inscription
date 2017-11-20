@@ -1,4 +1,4 @@
-package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outils;
+package ca.qc.cqmatane.informatique.projet_basededonnees_inscription.outil;
 
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Inscription;
 import ca.qc.cqmatane.informatique.projet_basededonnees_inscription.modele.Personne;
